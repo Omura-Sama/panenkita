@@ -1,0 +1,22 @@
+nav .container {
+	padding: 0px 200px;
+}
+.main-header .nav-link {
+	height: 60px;
+	position: relative;
+}
+ul li .nav-link {
+	line-height: 50px;
+	font-size: 20px;
+	color: white;
+}
+ul li .nav-link:focus {
+	background-color: white;
+	color: #264e36;
+}
+.badge {
+	margin: 5px;
+}
+.dropdown-divider {
+	margin: 0px;
+}
