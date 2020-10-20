@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header'); ?>
-<?php $this->load->view('layout/navbar_admin'); ?>
+<?php $this->load->view('layout/navbar_tengkulak'); ?>
 
 <div class="container-fluid">
     <div class="row" style="padding-top: 100px;">
@@ -9,15 +9,15 @@
             <div class="card" style="border-radius: 10px;">
 
                 <div style="color: #ffffff; padding:150px 10px 10px 10px; font-size:12px;">
-                    
+
                 </div>
 
                 <div style="text-align:center;">
-                   <h1> SELAMAT DATANG DI HALAMAN TENGKULAK (SEMENTARA) </h1>
+                    <h1> SELAMAT DATANG DI HALAMAN TENGKULAK (SEMENTARA) </h1>
                 </div>
 
                 <div style="color: #ffffff; padding:150px 10px 10px 10px; font-size:12px;">
-                    
+
                 </div>
             </div>
         </div>

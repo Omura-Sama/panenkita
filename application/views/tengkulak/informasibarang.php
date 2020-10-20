@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header'); ?>
-<?php $this->load->view('layout/navbar'); ?>
+<?php $this->load->view('layout/navbar_tengkulak'); ?>
 
 <div class="container-fluid" style="background-color:#ffffff; padding-top:80px;">
     <div class=" row">
