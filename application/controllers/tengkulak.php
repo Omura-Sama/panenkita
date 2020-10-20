@@ -6,7 +6,7 @@ class Tengkulak extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(array('M_kategori','M_petani','M_produk'));
+        $this->load->model(array('M_kategori', 'M_petani', 'M_produk'));
     }
 
     /**
@@ -36,5 +36,8 @@ class Tengkulak extends CI_Controller
     {
         $this->load->view('tengkulak/pemberitahuan');
     }
-
+    public function cekpemberitahuan()
+    {
+        $this->load->view('tengkulak/cekpemberitahuan');
+    }
 }
