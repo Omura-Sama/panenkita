@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://localhost/panenkita/';
-$config['base_url'] = 'http://localhost:8080/2020/panenkita/';
+$config['base_url'] = 'http://localhost/panenkita/';
 
 /*
 |--------------------------------------------------------------------------
