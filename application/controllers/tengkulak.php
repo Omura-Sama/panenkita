@@ -48,4 +48,8 @@ class Tengkulak extends CI_Controller
     {
         $this->load->view('tengkulak/pembelian');
     }
+    public function statuspembelian()
+    {
+        $this->load->view('tengkulak/statuspembelian');
+    }
 }

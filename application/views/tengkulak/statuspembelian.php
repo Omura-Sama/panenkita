@@ -10,10 +10,10 @@
                 <div class="row" style="padding: 10px;">
                     <div class="col-10">
                         <p style="font-size: 20px; font-weight: bold; color:#264E36;">
-                            PEMBELIAN ANDA
+                            STATUS PEMBELIAN
                         </p>
                     </div>
-                    <div class="col-2"><a href="<?= site_url('tengkulak/keranjang'); ?>"
+                    <div class="col-2"><a href="<?= site_url('tengkulak/pembelian'); ?>"
                             class="btn btn-danger">Kembali</a></div>
                 </div>
                 <div class="card-body table-responsive" style="height: 350px;padding:0px;">
@@ -27,15 +27,31 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <h5><b>Informasi Pembayaran</b></h5>
+                                    <h5><b>Status Pesanan</b></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Pembayaran Melalui</p>
                                             <p>Kode Pembayaran</p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Metode Pembbayaran xxx</p>
-                                            <p>Kode xxxxxx</p>
+                                            <p>Kode xxx</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <input type="checkbox" name="proses" id="proses">
+                                            <label for="proses">Status di proses</label>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="checkbox" name="kemas" id="kemas">
+                                            <label for="kemas">Status di kemas</label>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="checkbox" name="kirim" id="kirim">
+                                            <label for="kirim">Status di kirim</label>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="checkbox" name="terima" id="terima">
+                                            <label for="terima">Status di terima</label>
                                         </div>
                                     </div>
                                 </td>
@@ -71,39 +87,16 @@
                             <tr>
                                 <td>
                                     <h5><b>Total Pembayaran</b></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p>Rincian (Reguler)</p>
-                                            <p>Total (Reguler)</p>
-                                        </div>
-                                        <div class="col-6" align="right">
-                                            <p>Rp. xxx x x</p>
-                                            <p>Rp. xxx x x</p>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5><b>Status Pesanan</b></h5>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <input type="checkbox" name="proses" id="proses">
-                                            <label for="proses">Status di proses</label>
-                                        </div>
-                                        <div class="col-3">
-                                            <input type="checkbox" name="kemas" id="kemas">
-                                            <label for="kemas">Status di kemas</label>
-                                        </div>
-                                        <div class="col-3">
-                                            <input type="checkbox" name="kirim" id="kirim">
-                                            <label for="kirim">Status di kirim</label>
-                                        </div>
-                                        <div class="col-3">
-                                            <input type="checkbox" name="terima" id="terima">
-                                            <label for="terima">Status di terima</label>
-                                        </div>
-                                    </div>
+                                    <ul>
+                                        <li>Pesanan di proses</li>
+                                        <p>Tanggal</p>
+                                        <li>Pesanan di kemas</li>
+                                        <p>Tanggal</p>
+                                        <li>Pesanan di kirim</li>
+                                        <p>Tanggal</p>
+                                        <li>Pesanan di terima</li>
+                                        <p>Tanggal</p>
+                                    </ul>
                                 </td>
                             </tr>
                         </tbody>
