@@ -17,7 +17,11 @@
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url('assets/dist/css/adminlte.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/dist/css/adminlte.min.css'); ?>">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css'); ?>">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/daterangepicker/daterangepicker.css') ?>">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/template/css/util.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/template/css/main.css'); ?>">
@@ -25,5 +29,4 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/buttons.css'); ?>">
 </head>
 
-<!-- <body class="hold-transition layout-top-nav layout-navbar-fixed" style="background-color:#8D9449;"> -->
-<body class="hold-transition layout-top-nav layout-navbar-fixed">
+<body class="hold-transition layout-top-nav layout-navbar-fixed" style="background-color:#8D9449;">

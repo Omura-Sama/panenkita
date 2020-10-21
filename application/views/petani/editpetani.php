@@ -21,7 +21,7 @@
                                 <div class="custom-file" style="margin: 30px 0px;">
                                     <input type="file" class="custom-file-input" id="foto" name="foto" style="display: none;">
                                     <label for="foto">
-                                        <img src="<?= base_url('assets/img/default.png'); ?>" alt="Upload Foto" width="50px">
+                                        <img src="<?= base_url('assets/img/default.jpg'); ?>" alt="Upload Foto" width="50px">
                                         <b style=" color:#264E36;">Simpan Foto</b>
                                     </label>
                                 </div>

@@ -4,7 +4,6 @@
 <div class="container-fluid">
     <div class=" row">
         <div class="col-2">
-        testing
         </div>
         <div class="col-8">
             <div class="card" style="border-radius: 10px;">
@@ -14,13 +13,13 @@
                     <form action="#" method="">
                         <div class="row">
                             <div class="col-6">
-                                <p style="font-size: 26px; font-weight: bold; color:#264E36;margin-bottom:20px">DAFTAR</p>
+                                <p style="font-size: 26px; font-weight: bold; color:#264E36;margin-bottom:20px">DAFTAR / UBAH AKUN</p>
                             </div>
                             <div class="col-6">
                                 <div class="custom-file" style="margin: 30px 0px;">
                                     <input type="file" class="custom-file-input" id="foto" name="foto" style="display: none;">
                                     <label for="foto">
-                                        <img src="<?= base_url('assets/img/default.png'); ?>" alt="Upload Foto" width="50px">
+                                        <img src="<?= base_url('assets/img/user.jpg'); ?>" alt="Upload Foto" width="50px">
                                         <b style=" color:#264E36;">Simpan Foto</b>
                                     </label>
                                 </div>
@@ -121,7 +120,7 @@
                         <div class="row">
                             <div class="col-4">
                                 <button class="btn-default">
-                                    DAFTAR
+                                    DAFTAR / SIMPAN
                                 </button>
                             </div>
                         </div>
