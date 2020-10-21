@@ -40,4 +40,12 @@ class Tengkulak extends CI_Controller
     {
         $this->load->view('tengkulak/cekpemberitahuan');
     }
+    public function keranjang()
+    {
+        $this->load->view('tengkulak/keranjang');
+    }
+    public function pembelian()
+    {
+        $this->load->view('tengkulak/pembelian');
+    }
 }
