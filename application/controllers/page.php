@@ -25,7 +25,6 @@ class Page extends CI_Controller
 
 		parent::__construct();
 		$this->load->model("M_login");
-
 	}
 
 	public function index()
@@ -42,11 +41,14 @@ class Page extends CI_Controller
 	{
 		$this->load->view('web/petani');
 	}
+	public function editprofil()
+	{
+		$this->load->view('web/editprofil');
+	}
 
 	public function logout()
 	{
 		$this->session->session_destroy();
 		redirect('login');
 	}
-
 }

@@ -21,13 +21,13 @@
                                 <div class="custom-file" style="margin: 30px 0px;">
                                     <input type="file" class="custom-file-input" id="foto" name="foto" style="display: none;">
                                     <label for="foto">
-                                        <img src="<?= base_url('../../assets/img/default.png'); ?>" alt="Upload Foto" width="50px">
+                                        <img src="<?= base_url('../../assets/img/default.jpg'); ?>" alt="Upload Foto" width="50px">
                                         <b style=" color:#264E36;">Simpan Foto</b>
                                     </label>
                                 </div>
                             </div>
                         </div>
-                      <div class="row">
+                        <div class="row">
                             <div class="col-6">
                                 <div class="input-group">
                                     <div class="wrap-input100 validate-input m-t-10 m-b-10" data-validate="Masukan Email">
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-6">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <div class="wrap-input100 validate-input m-t-10 m-b-10" data-validate="Masukan NIK">
                                         <input class="input100" type="text" name="kontak">
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                      
+
                         <div class="row">
                             <div class="col">
                                 <div class="input-group">
@@ -99,7 +99,7 @@
                         <div class="row">
                             <div class="col-4">
                                 <!-- <button class="btn-default" > -->
-                                    <a  class="btn-default" style="color: white;" href="<?php echo site_url('Petani/editPetani/')?>"> UBAH</a>
+                                <a class="btn-default" style="color: white;" href="<?php echo site_url('Petani/editPetani/') ?>"> UBAH</a>
                                 <!-- </button> -->
                             </div>
                         </div>

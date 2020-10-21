@@ -60,7 +60,7 @@
                                     <p></p>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-default">UBAH</a>
+                            <a href="<?= site_url('admin/daftar') ?>" class="btn btn-default">UBAH</a>
                         </div>
                     </div>
                 </div>

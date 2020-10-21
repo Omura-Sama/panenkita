@@ -15,7 +15,7 @@
                         <table class="table table-head-fixed text-nowrap">
                             <tbody>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>John Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -26,7 +26,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Mike Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -37,7 +37,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Jim Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -48,7 +48,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Victoria Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -59,7 +59,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>John Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -70,7 +70,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Michael Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -81,7 +81,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>John Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -92,7 +92,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Rocky Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -103,7 +103,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>John Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -114,7 +114,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Bob Doe</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -125,7 +125,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
+                                    <td><img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;"></td>
                                     <td>
                                         <h5>Alexander Pierce</h5>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
