@@ -6,7 +6,7 @@ class Admin extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(array('M_kategori','M_petani','M_produk'));
+        $this->load->model(array('M_kategori', 'M_petani', 'M_produk'));
     }
 
     /**
@@ -57,36 +57,35 @@ class Admin extends CI_Controller
     {
         $data['listpetani'] = $this->M_petani->getListPetani();
         $data['listkategori'] = $this->M_kategori->getListKategori();
-        $this->load->view('admin/tambahproduk',$data);
+        $this->load->view('admin/tambahproduk', $data);
     }
 
     public function insertProduk()
     {
-         $dataProduk = array(
-            'nama_produk' => $this->input->post('nama_produk'), 
-            'nama_petani' => $this->input->post('nama_petani'), 
-            'name_kategori' => $this->input->post('kategori'), 
-            'foto_produk' => $this->input->post('foto'), 
-            'tanggal_panen' => $this->input->post('tanggal'), 
-            'stok_produk' => $this->input->post('stok'), 
-            'deskripsi_produk' => $this->input->post('deskripsi'), 
-            'harga_produk' => $this->input->post('harga'), 
+        $dataProduk = array(
+            'nama_produk' => $this->input->post('nama_produk'),
+            'nama_petani' => $this->input->post('nama_petani'),
+            'name_kategori' => $this->input->post('kategori'),
+            'foto_produk' => $this->input->post('foto'),
+            'tanggal_panen' => $this->input->post('tanggal'),
+            'stok_produk' => $this->input->post('stok'),
+            'deskripsi_produk' => $this->input->post('deskripsi'),
+            'harga_produk' => $this->input->post('harga'),
         );
 
-         // print_r($dataProduk);
+        // print_r($dataProduk);
         $insert = $this->M_produk->insert($dataProduk);
 
         // print_r($insert);
 
         if ($insert == 1) {
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ditambah. </div>');
-        }else{
+        } else {
             $this->session->set_flashdata('notif', '<div class="alert alert-warning alert-dismissible"> Gagal! Mohon cek kembali stock. </div>');
         }
 
         // redirect('admin/tambahkategori');
         $this->load->view('admin/tambahproduk');
-
     }
 
     public function insertKategori()
@@ -97,10 +96,10 @@ class Admin extends CI_Controller
         // $desc = $this->input->post('deskripsi');
 
         $dataKategori = array(
-            'name_kategori' => $this->input->post('nama_kategori'), 
-            'tipe_panen' => $this->input->post('tipe_panen'), 
-            'ppn' => $this->input->post('ppn'), 
-            'deskripsi' => $this->input->post('deskripsi'), 
+            'name_kategori' => $this->input->post('nama_kategori'),
+            'tipe_panen' => $this->input->post('tipe_panen'),
+            'ppn' => $this->input->post('ppn'),
+            'deskripsi' => $this->input->post('deskripsi'),
         );
 
         $insert = $this->M_kategori->insert($dataKategori);
@@ -109,32 +108,31 @@ class Admin extends CI_Controller
 
         if ($insert == 1) {
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ditambah. </div>');
-        }else{
+        } else {
             $this->session->set_flashdata('notif', '<div class="alert alert-warning alert-dismissible"> Gagal! Mohon cek kembali stock. </div>');
         }
 
         // redirect('admin/tambahkategori');
         $this->load->view('admin/tambahkategori');
-
     }
 
     public function insertPetani()
     {
         $day = $this->input->post('hari');
-        $month = $this->input->post('bulan'); 
+        $month = $this->input->post('bulan');
         $year = $this->input->post('tahun');
 
-        $date = $year."-".$month."-".$day;
+        $date = $year . "-" . $month . "-" . $day;
 
         $dataPetani = array(
-            'nama_petani' => $this->input->post('nama_petani'), 
-            'nik_petani' => $this->input->post('nik'), 
-            'email_petani' => $this->input->post('email'), 
-            'password_petani' => $this->input->post('password'), 
-            'tanggal_lahir_petani' => $date, 
-            'alamat_petani' => $this->input->post('alamat'), 
-            'kontak_petani' => $this->input->post('kontak'), 
-            'foto_petani' => $this->input->post('foto'), 
+            'nama_petani' => $this->input->post('nama_petani'),
+            'nik_petani' => $this->input->post('nik'),
+            'email_petani' => $this->input->post('email'),
+            'password_petani' => $this->input->post('password'),
+            'tanggal_lahir_petani' => $date,
+            'alamat_petani' => $this->input->post('alamat'),
+            'kontak_petani' => $this->input->post('kontak'),
+            'foto_petani' => $this->input->post('foto'),
         );
 
         // print_r($dataPetani);
@@ -144,7 +142,7 @@ class Admin extends CI_Controller
 
         if ($insert == 1) {
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ditambah. </div>');
-        }else{
+        } else {
             $this->session->set_flashdata('notif', '<div class="alert alert-warning alert-dismissible"> Gagal! Mohon cek kembali stock. </div>');
         }
 
