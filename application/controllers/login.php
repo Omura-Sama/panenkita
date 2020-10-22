@@ -25,7 +25,10 @@ class Login extends CI_Controller
 
 		parent::__construct();
 		$this->load->model("M_login");
-		$this->load->library('session');
+		// if($this->session->userdata('logged_in')){
+  //           redirect('page');
+  //       }
+		$this->load->library("session");
 
 	}
 
@@ -36,6 +39,8 @@ class Login extends CI_Controller
 
 	public function auth()
 	{
+		$this->load->library('session');
+
 		$email = $this->input->post('username',TRUE);
 		// $password = md5($this->input->post('password',TRUE));
 		$password = $this->input->post('password',TRUE);
@@ -57,8 +62,9 @@ class Login extends CI_Controller
 				'role' => $role, 
 				'logged_in' => TRUE, 
 			);
-			$this->session->set_userdata($sesdata);
 			// print_r($this->session->userdata();
+			
+
 
 			if ($role == 2) { // cek admin
 				// echo "string1";
@@ -66,9 +72,18 @@ class Login extends CI_Controller
 			}elseif ($role == 3) { // cek tengkulak
 				redirect('page/tengkulak');
 			}elseif ($role == 4) { // petani
-				$this->session->set_userdata($sesdata);
+				// $data["userdata"] = $this->session->userdata($sesdata);
+				// $this->load->view('web/petani',$data);
+                
+				// $this->session->set_userdata($sesdata);
 
-				redirect('page/petani');
+				// print_r($this->session->userdata());
+
+				$this->session->set_userdata('usernik',$name);
+	            $this->session->set_userdata('email',$email);
+	            $this->session->set_userdata('logged_in',TRUE);
+
+				redirect('page/petani','refresh');
 			}
 		}else{
 			// echo "string";

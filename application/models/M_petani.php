@@ -26,6 +26,11 @@ class M_petani extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function getIncomePetani()
+	{
+		# code...
+	}
 	
 }
 

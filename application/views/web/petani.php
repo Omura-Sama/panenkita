@@ -7,6 +7,8 @@
         </div>
         <div class="col-8">
             <div class="card" style="border-radius: 10px;">
+                <?php echo $username; ?>
+                <?php echo $email; ?>
 
                 <div
                     style="color: #ffffff; border-radius: 10px 10px 0px 0px;  background-color:#264E36; padding: 20px 10px 10px 10px; font-size:12px;">

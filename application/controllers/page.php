@@ -22,9 +22,17 @@ class Page extends CI_Controller
 
 	function __construct()
 	{
-
 		parent::__construct();
 		$this->load->model("M_login");
+
+		// if($this->session->userdata('logged_in') == '1'){
+		// 	redirect(base_url("login"));
+		// }
+		 $this->load->library('form_validation','session');
+
+		if(!$this->session->userdata('logged_in')){
+            redirect('login');
+        }
 	}
 
 	public function index()
@@ -39,7 +47,14 @@ class Page extends CI_Controller
 
 	public function petani()
 	{
-		$this->load->view('web/petani');
+		// $data["username"] = $this->session->userdata('username');
+		// $data["email"] = $this->session->userdata('email');
+
+		// echo $this->session->userdata('logged_in');
+		// print_r($this->session->userdata);
+		// print_r($this->session->userdata());
+
+		$this->load->view('web/petani',$data);
 	}
 	public function editprofil()
 	{

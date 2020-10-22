@@ -41,6 +41,7 @@ class Petani extends CI_Controller
 
     public function halPenghasilan()
     {
+        $data['incomeP'] = $this->M_petani->getIncomePetani();
         $this->load->view('petani/halaman_penghasilan');
     }
 
