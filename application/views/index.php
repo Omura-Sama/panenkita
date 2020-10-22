@@ -23,7 +23,7 @@
                     <p style="font-size: 16px; font-weight: bold; color:#264E36;">Masuk <img src="<?= base_url('assets/img/logo/text_eden_logo.png') ?>" alt="Panenkita Logo" width="120px" style="margin-top:-2px;"></p>
                     <?php echo $this->session->flashdata('msg'); ?>
 
-                    <form action="<?php echo base_url() ?>index.php/Login/auth" method="post">
+                    <form action="<?php echo base_url() ?>index.php/login/auth" method="post">
                         <div class="input-group mb-3">
                             <div class="wrap-input100 validate-input m-t-30 m-b-10" data-validate="Masukan Email">
                                 <input class="input100" type="text" name="username">

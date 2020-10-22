@@ -11,6 +11,7 @@
                     <div style="width:100%; height:70px;background-color:#264E36; border-radius: 10px 10px 0px 0px;"></div>
                     <center style="padding: 135px;">
                         <h1>SELAMAT DATANG DIHALAMAN ADMIN (SEMENTARA)</h1>
+                        <p><?= @$data ?></p>
                     </center>
                     <div style="width:100%; height:70px;top:100px;background-color:#8D9449; border-radius: 0px 0px 10px 10px;"></div>
                 </div>
