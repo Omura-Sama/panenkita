@@ -67,7 +67,8 @@ class Login extends CI_Controller
 
 			if ($role == 2) { // cek admin
 				// echo "string1";
-				redirect('page', $data);
+				// print_r($this->session->userdata('usernik'));
+				redirect('page');
 			} elseif ($role == 3) { // cek tengkulak
 				redirect('page/tengkulak');
 			} elseif ($role == 4) { // petani
@@ -82,6 +83,8 @@ class Login extends CI_Controller
 				$this->session->set_userdata('email', $email);
 				$this->session->set_userdata('logged_in', TRUE);
 
+				// $this->load->view('web/petani', $data);
+				// redirect('page/petani', $data);
 				redirect('page/petani', 'refresh');
 			}
 		} else {
@@ -94,7 +97,7 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
-		// $this->session->session_destroy();
+		$this->session->sess_destroy();
 		redirect('login');
 		// $this->load->view('index');
 	}

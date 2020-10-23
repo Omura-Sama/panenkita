@@ -8,10 +8,10 @@
         <div class="col-8">
             <div class="card" style="border-radius: 10px;">
                 <div class="row" style="padding: 10px;">
-                    <div class="col-2"><a href="<?= site_url('petani/halPenghasilan'); ?>" class="btn btn-danger">Kembali</a></div>
+                    <div class="col-2"><a href="<?= site_url('petani/statPenghasilan'); ?>" class="btn btn-danger">Kembali</a></div>
                     <div class="col-10">
                         <p style="font-size: 20px; font-weight: bold; color:#264E36;">
-                            PENGHASILAN ANDA
+                            DETAIL PENGHASILAN ANDA
                         </p>
                     </div>
                 </div>
@@ -29,36 +29,6 @@
                                             <h5><b>Tanggal Pemasukan</b></h5>
 
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5><b>Detail Produk</b></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p>Pembayaran Melalui</p>
-                                            <p>Kode Pembayaran</p>
-                                        </div>
-                                        <div class="col-6" align="right">
-                                            <p>Metode Pembbayaran xxx</p>
-                                            <p>Kode xxxxxx</p>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5><b>Informasi Pesanan</b></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <!-- <p>Nama Petani (Regular) xxx</p> -->
-                                        </div>
-                                        <div class="col-6" align="right">
-                                            <p>Tanggal Panen xxx</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-1">
                                             <img class="imgPesan" src="<?= base_url('assets/img/pisang.jpeg'); ?>" alt="" width="80px" style="border-radius: 5px;">
                                         </div>
@@ -75,39 +45,45 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <h5><b>Laba Kotor</b></h5>
+                                    <h5><b>Rincian</b></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Harga Barang (Reguler)</p>
-                                            <p>Total pembelian (Reguler)</p>
-                                            <p>Total (Reguler)</p>
+                                            <p>Harga Barang</p>
+                                            <p>Total Pembelian</p>
+                                            <p>Category Barang</p>
+                                            <p>PPN</p>
+                                            <p>Kode Transaksi</p>
+                                            <p>Metode Transaksi</p>
+                                            <p>Nama Pembeli</p>
+                                            <p>Tanggal Pembelian</p>
+                                            <p>Biaya Operasional</p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Rp. xxx x x</p>
-                                            <p>Kuantiti</p>
-                                            <p>Rp. xxx x x</p>
+                                            <p>Rp. Harga Produk</p>
+                                            <p>Qty</p>
+                                            <p>Kategori</p>
+                                            <p>PPN %</p>
+                                            <p>Kode Transaksi</p>
+                                            <p>Metode Transaksi</p>
+                                            <p>Nama Pembeli</p>
+                                            <p>Tanggal Pembelian</p>
+                                            <p>Biaya Operasional</p>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h5><b>Penghasilan</b></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Biaya Operasional (Reguler)</p>
-                                            <p>Total penghasilan (Reguler)</p>
+                                            <h5><b>Total Penghasilan</b></h5>
+                                            <!-- <p>Nama Petani (Regular) xxx</p> -->
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>PPN %</p>
-                                            <p>Rp.</p>
+                                            <h5><b>Rp.</b></h5>
+                                            <!-- <p>Tanggal Panen xxx</p> -->
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center;">
-                                    <a class="btn-default" style="color: white; width: 100px;" href="<?php echo site_url('Petani/detailPenghasilan/') ?>"> <b>DETAIL PENGHASILAN</b></a>
                                 </td>
                             </tr>
                         </tbody>
