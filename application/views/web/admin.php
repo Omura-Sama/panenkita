@@ -9,15 +9,15 @@
             <div class="card" style="border-radius: 10px;">
 
                 <div style="color: #ffffff; padding:150px 10px 10px 10px; font-size:12px;">
-                    
+
                 </div>
 
                 <div style="text-align:center;">
-                   <h1> SELAMAT DATANG DI HALAMAN ADMIN (SEMENTARA) </h1>
+                    <h1> SELAMAT DATANG DI HALAMAN ADMIN (SEMENTARA) </h1>
                 </div>
 
                 <div style="color: #ffffff; padding:150px 10px 10px 10px; font-size:12px;">
-                    
+
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ class Admin extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(array('M_kategori','M_petani','M_produk'));
+        $this->load->model(array('M_kategori','M_petani','M_produk', 'M_admin'));
     }
 
     /**
@@ -35,7 +35,9 @@ class Admin extends CI_Controller
     }
     public function listpesan()
     {
-        $this->load->view('admin/listpesan');
+        $user = $this->session->userdata('username');
+        $data['isipesan'] = $this->M_admin->getIsiPesan($user);
+        $this->load->view('admin/listpesan', $data);
     }
     public function isipesan()
     {
