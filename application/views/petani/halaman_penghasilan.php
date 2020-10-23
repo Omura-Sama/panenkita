@@ -20,6 +20,15 @@
                             <th>Pemasukan</th>
                             <th>Detail</th>
                         </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Pisang</td>
+                            <td>1</td>
+                            <td>tes</td>
+                            <td>tes</td>
+                            <td>tes</td>
+                            <td>tes</td>
+                        </tr>
                     </table>
                 </div>
 

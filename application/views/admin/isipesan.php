@@ -26,7 +26,7 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                             <div class="col-10">
                                                 <h5>Tengkulak</h5>
@@ -43,7 +43,7 @@
                                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
                                             </div>
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                         </div>
                                     </td>
@@ -52,7 +52,7 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                             <div class="col-10">
                                                 <h5>Tengkulak</h5>
@@ -69,7 +69,7 @@
                                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
                                             </div>
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                         </div>
                                     </td>
@@ -78,7 +78,7 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                             <div class="col-10">
                                                 <h5>Tengkulak</h5>
@@ -95,7 +95,7 @@
                                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
                                             </div>
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                         </div>
                                     </td>
@@ -104,7 +104,7 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                             <div class="col-10">
                                                 <h5>Tengkulak</h5>
@@ -121,7 +121,7 @@
                                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
                                             </div>
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                         </div>
                                     </td>
@@ -130,7 +130,7 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                             <div class="col-10">
                                                 <h5>Tengkulak</h5>
@@ -147,7 +147,7 @@
                                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
                                             </div>
                                             <div class="col-2">
-                                                <img class="imgPesan" src="<?= base_url('assets/img/default.png'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
+                                                <img class="imgPesan" src="<?= base_url('assets/img/default.jpg'); ?>" alt="" width="60px" style="position:initial; border-radius: 30px;">
                                             </div>
                                         </div>
                                     </td>

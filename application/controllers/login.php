@@ -25,8 +25,10 @@ class Login extends CI_Controller
 
 		parent::__construct();
 		$this->load->model("M_login");
-		$this->load->library('session');
-
+		// if($this->session->userdata('logged_in')){
+		//           redirect('page');
+		//       }
+		$this->load->library("session");
 	}
 
 	public function index()
@@ -36,10 +38,11 @@ class Login extends CI_Controller
 
 	public function auth()
 	{
-		$email = $this->input->post('username',TRUE);
+		// $this->load->library('session');
+		$email = $this->input->post('username', TRUE);
 		// $password = md5($this->input->post('password',TRUE));
-		$password = $this->input->post('password',TRUE);
-		$validate = $this->M_login->validate($email,$password);
+		$password = $this->input->post('password', TRUE);
+		$validate = $this->M_login->validate($email, $password);
 
 		// echo $email;
 		// echo $password;
@@ -52,30 +55,40 @@ class Login extends CI_Controller
 			$email = $data['email'];
 			$role = $data['role_id'];
 			$sesdata = array(
-				'username' => $name, 
-				'email' => $email, 
-				'role' => $role, 
-				'logged_in' => TRUE, 
+				'username' => $name,
+				'email' => $email,
+				'role' => $role,
+				'logged_in' => TRUE,
 			);
-			$this->session->set_userdata($sesdata);
 			// print_r($this->session->userdata();
+			$this->session->set_userdata('user', $name);
+			$this->session->set_userdata('email', $email);
+			$this->session->set_userdata('logged_in', TRUE);
 
 			if ($role == 2) { // cek admin
 				// echo "string1";
-				redirect('page');
-			}elseif ($role == 3) { // cek tengkulak
+				redirect('page', $data);
+			} elseif ($role == 3) { // cek tengkulak
 				redirect('page/tengkulak');
-			}elseif ($role == 4) { // petani
-				$this->session->set_userdata($sesdata);
+			} elseif ($role == 4) { // petani
+				// $data["userdata"] = $this->session->userdata($sesdata);
+				// $this->load->view('web/petani',$data);
 
-				redirect('page/petani');
+				// $this->session->set_userdata($sesdata);
+
+				// print_r($this->session->userdata());
+
+				$this->session->set_userdata('usernik', $name);
+				$this->session->set_userdata('email', $email);
+				$this->session->set_userdata('logged_in', TRUE);
+
+				redirect('page/petani', 'refresh');
 			}
-		}else{
+		} else {
 			// echo "string";
 			echo $this->session->set_flashdata('msg', '<span class="badge badge-danger">Username or Password is wrong</span>');
 			// redirect('login');
 			$this->load->view('index');
-
 		}
 	}
 
@@ -87,24 +100,24 @@ class Login extends CI_Controller
 	}
 
 	public function regist()
-	{	
+	{
 		$data["title"] = 'Registration Form';
-		$this->load->view('admin/daftar',$data);
+		$this->load->view('admin/daftar', $data);
 	}
 
 	public function newMember()
 	{
 		$tgl = date('dmy');
 		$jam = date('H:i:s');
-		$conv = date("y",strtotime($tgl));
-		$conv1 = date("His",strtotime($jam));
-		$genKar = "Kar".$conv.$conv1."";
+		$conv = date("y", strtotime($tgl));
+		$conv1 = date("His", strtotime($jam));
+		$genKar = "Kar" . $conv . $conv1 . "";
 
 
-		$fName = $this->input->post('fname',TRUE);
-		$lName = $this->input->post('lname',TRUE);
-		$email = $this->input->post('email',TRUE);
-		$password = md5($this->input->post('password',TRUE));
+		$fName = $this->input->post('fname', TRUE);
+		$lName = $this->input->post('lname', TRUE);
+		$email = $this->input->post('email', TRUE);
+		$password = md5($this->input->post('password', TRUE));
 
 		// echo $email;
 
@@ -114,30 +127,28 @@ class Login extends CI_Controller
 
 		if (!isset($cek)) {
 			$dataInUser = array(
-		        'pengguna_id' => $genKar,
-		        'nama_pengguna' => $email,
-		        'pass_pengguna' => $password
-	        );
+				'pengguna_id' => $genKar,
+				'nama_pengguna' => $email,
+				'pass_pengguna' => $password
+			);
 
-	        // print_r($dataInUser);
-	       	$this->M_login->insertUser($dataInUser);
+			// print_r($dataInUser);
+			$this->M_login->insertUser($dataInUser);
 
-	        $dataInEmp = array(
-		        'karyawan_id' => $genKar,
-		        'nama_karyawan' => $fName." ".$lName
+			$dataInEmp = array(
+				'karyawan_id' => $genKar,
+				'nama_karyawan' => $fName . " " . $lName
 
-	        );
-	        // print_r($dataInEmp);
-       		$this->M_login->insertEmp($dataInEmp);
+			);
+			// print_r($dataInEmp);
+			$this->M_login->insertEmp($dataInEmp);
 
 			echo $this->session->set_flashdata('msg', 'Data berhasil ditambahkan');
-
-		}else{
+		} else {
 			echo $this->session->set_flashdata('msg', 'Email sudah digunakan');
-
 		}
 
-        
+
 		$data["title"] = 'Registration Form';
 		// $this->load->view('regist',$data);
 		redirect('login/regist');

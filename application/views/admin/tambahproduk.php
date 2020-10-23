@@ -21,7 +21,7 @@
                                 <div class="custom-file" style="margin: 30px 0px;">
                                     <input type="file" class="custom-file-input" id="foto" name="foto" style="display: none;">
                                     <label for="foto">
-                                        <img src="<?= base_url('../../assets/img/default.png'); ?>" alt="Upload Foto" width="50px">
+                                        <img src="<?= base_url('assets/img/default.jpg'); ?>" alt="Upload Foto" width="50px">
                                         <b style=" color:#264E36;">Simpan Foto</b>
                                     </label>
                                 </div>
@@ -43,7 +43,7 @@
                                     <div class="wrap-input100 validate-input m-t-10 m-b-10">
                                         <select class="custom-select" name="nama_petani" id="nama_petani" style="border: 0;box-shadow:none;">
                                             <option value="">- Pilih Nama Petani -</option>
-                                            <?php foreach ($listpetani as $key): ?>
+                                            <?php foreach ($listpetani as $key) : ?>
                                                 <option value="<?= $key->nama_petani; ?>"> <?= $key->nama_petani; ?></option>
                                             <?php endforeach ?>
                                         </select>
@@ -56,7 +56,7 @@
                                         <!-- <?php print_r($listkategori); ?> -->
                                         <select class="custom-select" name="kategori" id="kategori" style="border: 0;box-shadow:none;">
                                             <option value="">- Pilih Kategori Produk -</option>
-                                            <?php foreach ($listkategori as $key): ?>
+                                            <?php foreach ($listkategori as $key) : ?>
                                                 <option value="<?= $key->name_kategori; ?>"> <?= $key->name_kategori;  ?></option>
                                             <?php endforeach ?>
                                         </select>
@@ -67,10 +67,10 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="wrap-input100 validate-input m-t-10 m-b-10" data-validate="Masukan Stok / Kuintal">
-                                    <div class="input-group date" id="tanggalpanen" data-target-input="nearest">
-                                        <input type="text" name="tanggal" id="tanggal" class="form-control datetimepicker-input" data-target="#tanggalpanen" style="border: 0;box-shadow:none;" placeholder="Pilih Tanggal Panen" />
+                                    <div class="input-group date" id="tanggal" data-target-input="nearest">
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control datetimepicker-input" data-target="#tanggal" style="border: 0;box-shadow:none;" placeholder="Pilih Tanggal Panen" />
                                         <label for="tanggal">
-                                            <div class="input-group-append" data-target="#tanggalpanen" data-toggle="datetimepicker">
+                                            <div class="input-group-append" data-target="#tanggal" data-toggle="datetimepicker">
                                                 <div class="input-group-text" style="border:0;background-color:#ffffff;"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </label>

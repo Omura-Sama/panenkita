@@ -17,14 +17,11 @@
                                     <img src=" <?= base_url('assets/img/pisang.jpeg'); ?>" alt="" width="100%">
                                 </td>
                                 <td align="center">
-                                    <button class="btn btn-default"
-                                        style="margin-bottom: 20px; width:170px;">Beli</button>
-                                    <button class="btn btn-default"
-                                        style="margin-bottom: 20px; width:170px;">Simpan</button>
-                                    <button class="btn btn-default" style="margin-bottom: 20px; width:170px;">Kirim
-                                        Pesan</button>
-                                    <button class="btn btn-danger"
-                                        style="margin-bottom: 20px; width:170px;">Kembali</button>
+                                    <a href="<?= site_url('tengkulak/transaksiproduk') ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Beli</a>
+                                    <a class="btn btn-default" style="margin-bottom: 20px; width:170px;">Simpan</a>
+                                    <a class="btn btn-default" style="margin-bottom: 20px; width:170px;">Kirim
+                                        Pesan</a>
+                                    <a class="btn btn-danger" style="margin-bottom: 20px; width:170px;">Kembali</a>
                                 </td>
                             </tr>
                             <tr>
@@ -50,8 +47,7 @@
                                     <h6><b>Petani</b></h6>
                                     <div class="row">
                                         <div class="col-4">
-                                            <img class="imgPesan" src="<?= base_url('assets/img/user.jpg'); ?>" alt=""
-                                                width="50px" style="position:initial; border-radius: 30px;">
+                                            <img class="imgPesan" src="<?= base_url('assets/img/user.jpg'); ?>" alt="" width="50px" style="position:initial; border-radius: 30px;">
                                         </div>
                                         <div class="col-8">
                                             <h6><b>Nama Petani</b></h6>
@@ -68,9 +64,7 @@
                 </div>
             </div>
             <center style="font-size:14px;padding:10px;">
-                <p style="color:#264E36;"><b>&copy; 2020.</b> <img
-                        src=" <?= base_url('assets/img/logo/text_eden_logo.png'); ?>" alt="" class="img-fluid"
-                        width="100px" style="margin-top:-3px;"></p>
+                <p style="color:#264E36;"><b>&copy; 2020.</b> <img src=" <?= base_url('assets/img/logo/text_eden_logo.png'); ?>" alt="" class="img-fluid" width="100px" style="margin-top:-3px;"></p>
             </center>
         </div>
     </div>
