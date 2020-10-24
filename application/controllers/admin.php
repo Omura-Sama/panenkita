@@ -35,13 +35,17 @@ class Admin extends CI_Controller
     }
     public function listpesan()
     {
-        $user = $this->session->userdata('username');
+        // die(print_r($this->session->userdata()));
+        $user = $this->session->userdata('user');
         $data['isipesan'] = $this->M_admin->getIsiPesan($user);
         $this->load->view('admin/listpesan', $data);
     }
     public function isipesan()
     {
-        $this->load->view('admin/isipesan');
+        $data['pengirim'] = $_GET['pengirim'];
+        $data['tanggal'] = $_GET['tanggal'];
+        $data['pesan'] = $this->M_admin->getPesan($_GET['pengirim']);
+        $this->load->view('admin/isipesan', $data);
     }
     public function tambahkategori()
     {

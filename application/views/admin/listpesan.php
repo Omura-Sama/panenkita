@@ -28,7 +28,8 @@
                                     <td>
                                         <center><?=date('d-m-Y', strtotime($pesan->tanggal_pesan))?> <span
                                                 class="fas fa-calendar-alt"></span></center>
-                                        <button class="btn-default">BACA</button>
+                                        <a href="<?=site_url('admin/isipesan/?pengirim='.$pesan->pengirim.'&tanggal='.date('d-m-Y', strtotime($pesan->tanggal_pesan)))?>"
+                                            class="btn-default">BACA</a>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>

@@ -17,6 +17,15 @@ class M_admin extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function getPesan($pengirim)
+	{
+		$this->db->select('*');
+        $this->db->from('pesan');
+        $this->db->where('pengirim', $pengirim);
+
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
  ?>
