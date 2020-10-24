@@ -6,7 +6,7 @@ class Admin extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(array('M_kategori','M_petani','M_produk', 'M_admin'));
+        $this->load->model(array('M_kategori', 'M_petani', 'M_produk', 'M_admin'));
     }
 
     /**
@@ -38,14 +38,34 @@ class Admin extends CI_Controller
         // die(print_r($this->session->userdata()));
         $user = $this->session->userdata('user');
         $data['isipesan'] = $this->M_admin->getIsiPesan($user);
-        $this->load->view('admin/listpesan', $data);
+        $this->load->view('pesan/listpesan', $data);
     }
     public function isipesan()
     {
         $data['pengirim'] = $_GET['pengirim'];
         $data['tanggal'] = $_GET['tanggal'];
-        $data['pesan'] = $this->M_admin->getPesan($_GET['pengirim']);
-        $this->load->view('admin/isipesan', $data);
+        $data['unicode'] = $_GET['unicode'];
+        $data['pesan'] = $this->M_admin->getPesan($_GET['unicode']);
+        $this->load->view('pesan/isipesan', $data);
+    }
+    public function insertPesan()
+    {
+        $dataPesan = array(
+            'unicode' => $this->input->post('unicode'),
+            'penerima' => $this->input->post('penerima'),
+            'pengirim' => $this->input->post('pengirim'),
+            'isi_pesan' => $this->input->post('isi_pesan'),
+            'tanggal_pesan' => date('Y-m-d H:i:s'),
+        );
+
+        $this->M_admin->insert($dataPesan);
+
+        $data['pengirim'] = $this->input->post('pengirim');
+        $data['tanggal'] = date('Y-m-d H:i:s');
+        $data['unicode'] = $this->input->post('unicode');
+        $data['pesan'] = $this->M_admin->getPesan($this->input->post('unicode'));
+
+        $this->load->view('pesan/isipesan', $data);
     }
     public function tambahkategori()
     {

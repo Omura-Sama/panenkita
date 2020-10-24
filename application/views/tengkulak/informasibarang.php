@@ -19,7 +19,7 @@
                                 <td align="center">
                                     <a href="<?= site_url('tengkulak/transaksiproduk') ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Beli</a>
                                     <a class="btn btn-default" style="margin-bottom: 20px; width:170px;">Simpan</a>
-                                    <a class="btn btn-default" style="margin-bottom: 20px; width:170px;">Kirim
+                                    <a href="<?= site_url('tengkulak/kirimpesan/?id=') ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Kirim
                                         Pesan</a>
                                     <a class="btn btn-danger" style="margin-bottom: 20px; width:170px;">Kembali</a>
                                 </td>
