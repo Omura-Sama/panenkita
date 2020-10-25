@@ -25,11 +25,13 @@
                     <i class="fas fa-cog"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                    <a href="#" class="dropdown-item">Kelola Produk </a>
+                    <a href="<?= site_url('Admin/kelolaproduk'); ?>" class="dropdown-item">Kelola Produk </a>
                     <div class="dropdown-divider"></div>
                     <a href="<?= site_url('Admin/kelolapetani'); ?>" class="dropdown-item">Kelola Petani</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Kelola Kategori</a>
+                    <a href="<?= site_url('Admin/kelolakategori'); ?>" class="dropdown-item">Kelola Kategori</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="<?= site_url('Admin/kelolatransaksi'); ?>" class="dropdown-item">Kelola Transaksi</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -38,7 +40,7 @@
                     <span class="badge badge-warning navbar-badge">1</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                    <a href="#" class="dropdown-item">Pesan tengkulak </a>
+                    <a href="<?= site_url('admin/listpesan') ?>" class="dropdown-item">Pesan tengkulak </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">Pesan petani</a>
                 </div>

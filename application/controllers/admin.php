@@ -77,8 +77,26 @@ class Admin extends CI_Controller
     }
     public function kelolapetani()
     {
-        $this->load->view('admin/kelola_petani');
+        $data['listpetani'] = $this->M_admin->getAllpetani();
+        $this->load->view('admin/kelola_petani',$data);
     }
+    public function kelolaproduk()
+    {
+        $data['listproduk'] = $this->M_admin->getAllproduk();
+        $this->load->view('admin/kelola_produk',$data);
+    }
+    public function kelolakategori()
+    {
+        $data['listkategori'] = $this->M_admin->getAllkategori();
+        $this->load->view('admin/kelola_kategori',$data);
+    }
+
+    public function kelolatransaksi()
+    {
+        $data['listtransaksi'] = $this->M_admin->getAlltransaksi();
+        $this->load->view('admin/kelola_transaksi',$data);
+    }
+
     public function tambahproduk()
     {
         $data['listpetani'] = $this->M_petani->getListPetani();

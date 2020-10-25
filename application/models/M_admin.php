@@ -6,6 +6,41 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 class M_admin extends CI_Model
 {
+	public function getAllpetani()
+	{
+		$this->db->select('*');
+		$this->db->from('petani');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getAllkategori()
+	{
+		$this->db->select('*');
+		$this->db->from('kategori');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getAlltransaksi()
+	{
+		$this->db->select('*');
+		$this->db->from('transaksi');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getAllproduk()
+	{
+		$this->db->select('*');
+		$this->db->from('produk');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	public function getIsiPesan($penerima)
 	{
