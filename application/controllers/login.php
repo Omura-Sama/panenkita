@@ -66,10 +66,6 @@ class Login extends CI_Controller
 			);
 
 			// print_r($this->session->userdata();
-			// $this->session->set_userdata('usernik', $name);
-			// $this->session->set_userdata('email', $email);
-			// $this->session->set_userdata('logged_in', TRUE);
-
 			$this->session->set_userdata($sesdata);
 
 			if ($role == 2) { // cek admin

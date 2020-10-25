@@ -28,7 +28,7 @@ class Page extends CI_Controller
 		// if($this->session->userdata('logged_in') == '1'){
 		// 	redirect(base_url("login"));
 		// }
-		$this->load->library('form_validation', 'session');
+		$this->load->library(array('form_validation', 'session'));
 
 		// if (!$this->session->userdata('logged_in')) {
 		// 	redirect('login');

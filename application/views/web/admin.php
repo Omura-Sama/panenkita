@@ -14,7 +14,6 @@
 
                 <div style="text-align:center;">
                     <h1> SELAMAT DATANG DI HALAMAN ADMIN (SEMENTARA) </h1>
-                    <?= $this->session->userdata('email') ?>
                 </div>
 
                 <div style="color: #ffffff; padding:150px 10px 10px 10px; font-size:12px;">
