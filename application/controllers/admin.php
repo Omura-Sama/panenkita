@@ -77,7 +77,7 @@ class Admin extends CI_Controller
     }
     public function kelolapetani()
     {
-        $this->load->view('admin/kelolapetani');
+        $this->load->view('admin/kelola_petani');
     }
     public function tambahproduk()
     {
