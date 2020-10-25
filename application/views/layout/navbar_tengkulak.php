@@ -38,9 +38,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="fas fa-caret-down"></i>
                 </a>
+                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                    <a href="<?= site_url('Login/logout'); ?>?>" class="dropdown-item">Logout</a>
+                    <div class="dropdown-divider"></div>
+                </div>
             </li>
         </ul>
     </div>

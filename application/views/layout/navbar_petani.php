@@ -42,16 +42,10 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
+                <a class="nav-link" href="<?= site_url('petani/produkAnda') ?>">
                     <i class="fas fa-shopping-basket"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                    <a href="<?= site_url('Admin/tambahproduk'); ?>" class="dropdown-item">Tambah Produk</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="<?= site_url('Admin/tambahpetani'); ?>" class="dropdown-item">Tambah Petani</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="<?= site_url('Admin/tambahkategori'); ?>" class="dropdown-item">Tambah Kategori</a>
-                </div>
+               
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= site_url('Login/logout'); ?>">
