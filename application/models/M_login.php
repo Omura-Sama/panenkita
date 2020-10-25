@@ -21,7 +21,6 @@ class M_login extends CI_Model
 		return $result->row();
 	}
 
-
 	function insertUser($dataInCab){
         $query = $this->db->insert("user",$dataInCab);
 

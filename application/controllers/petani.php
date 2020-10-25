@@ -49,6 +49,18 @@ class Petani extends CI_Controller
         $this->load->view('petani/halaman_penghasilan');
     }
 
+    public function statPenghasilan()
+    {
+        // $data['incomeP'] = $this->M_petani->getIncomePetani();
+        $this->load->view('petani/status_penghasilan');
+    }
+
+        public function detailPenghasilan()
+    {
+        // $data['incomeP'] = $this->M_petani->getIncomePetani();
+        $this->load->view('petani/penghasilan');
+    }
+
     public function tambahproduk()
     {
         $data['listpetani'] = $this->M_petani->getListPetani();

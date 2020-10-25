@@ -38,6 +38,9 @@ class Page extends CI_Controller
 	public function index()
 	{
 		$this->load->view('web/admin');
+		// print_r($this->session->userdata('usernik'));
+		// echo $this->session->userdata('email');
+		// echo $this->session->userdata('usernik');
 	}
 
 	public function tengkulak()
@@ -51,7 +54,6 @@ class Page extends CI_Controller
 		// $data["email"] = $this->session->userdata('email');
 
 		// echo $this->session->userdata('logged_in');
-		// print_r($this->session->userdata);
 		// print_r($this->session->userdata());
 
 		$this->load->view('web/petani');

@@ -54,34 +54,27 @@ class Login extends CI_Controller
 			$name = $data['username'];
 			$email = $data['email'];
 			$role = $data['role_id'];
+			$userId = $data['id_user'];
+
+			echo $userId;
 			$sesdata = array(
+				'iduser' => $userId,
 				'username' => $name,
 				'email' => $email,
 				'role' => $role,
 				'logged_in' => TRUE,
 			);
+
 			// print_r($this->session->userdata();
-			$this->session->set_userdata('user', $name);
-			$this->session->set_userdata('email', $email);
-			$this->session->set_userdata('logged_in', TRUE);
+			$this->session->set_userdata($sesdata);
 
 			if ($role == 2) { // cek admin
 				// echo "string1";
-				redirect('page', $data);
+				redirect('page');
 			} elseif ($role == 3) { // cek tengkulak
-				redirect('page/tengkulak');
+				// redirect('page/tengkulak');
+				redirect('tengkulak/index');
 			} elseif ($role == 4) { // petani
-				// $data["userdata"] = $this->session->userdata($sesdata);
-				// $this->load->view('web/petani',$data);
-
-				// $this->session->set_userdata($sesdata);
-
-				// print_r($this->session->userdata());
-
-				$this->session->set_userdata('usernik', $name);
-				$this->session->set_userdata('email', $email);
-				$this->session->set_userdata('logged_in', TRUE);
-
 				redirect('page/petani', 'refresh');
 			}
 		} else {
@@ -94,7 +87,7 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
-		// $this->session->session_destroy();
+		$this->session->sess_destroy();
 		redirect('login');
 		// $this->load->view('index');
 	}
