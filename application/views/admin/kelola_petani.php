@@ -6,8 +6,8 @@
         <div class="col-12">
             <div class="card" style="border-radius: 10px;">
 
-                <div class="card-body table-responsive p-0" style="width: 1265px; height: 500px; text-align:center; border-radius: 10px 10px 0px 0px;font-size:12px;">
-                    <table class="table table-head-fixed">
+                <div class="card-body table-responsive p-0" style="text-align:center; border-radius: 10px 10px 0px 0px;font-size:12px;">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th style="background: #264E36; color:#ffffff;">NO.</th>
