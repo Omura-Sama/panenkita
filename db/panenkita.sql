@@ -1,248 +1,356 @@
-/*
- Navicat Premium Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 25, 2020 at 05:39 PM
+-- Server version: 10.1.8-MariaDB
+-- PHP Version: 7.3.7
 
- Source Server         : Serverset
- Source Server Type    : MySQL
- Source Server Version : 100411
- Source Host           : localhost:3306
- Source Schema         : panenkita
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
- Target Server Type    : MySQL
- Target Server Version : 100411
- File Encoding         : 65001
 
- Date: 17/10/2020 01:23:16
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+--
+-- Database: `panenkita`
+--
 
--- ----------------------------
--- Table structure for admin
--- ----------------------------
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin`  (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
   `id_admin` smallint(6) NOT NULL,
-  `nama_admin` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `username_admin` char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `email_admin` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `password_admin` char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `foto_admin` mediumblob NULL,
-  PRIMARY KEY (`id_admin`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `nama_admin` varchar(100) DEFAULT NULL,
+  `username_admin` char(15) DEFAULT NULL,
+  `email_admin` varchar(50) DEFAULT NULL,
+  `password_admin` char(15) DEFAULT NULL,
+  `foto_admin` mediumblob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of admin
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for kategori
--- ----------------------------
-DROP TABLE IF EXISTS `kategori`;
-CREATE TABLE `kategori`  (
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
   `id_kategori` smallint(6) NOT NULL,
-  `name_kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `tipe_panen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `PPN` int(20) NULL DEFAULT NULL,
-  `kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `deskripsi` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id_kategori`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `name_kategori` varchar(50) DEFAULT NULL,
+  `tipe_panen` varchar(50) DEFAULT NULL,
+  `PPN` int(20) DEFAULT NULL,
+  `kategori` varchar(50) DEFAULT NULL,
+  `deskripsi` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of kategori
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for member
--- ----------------------------
-DROP TABLE IF EXISTS `member`;
-CREATE TABLE `member`  (
-  `id_mmb` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id_mmb` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `name_firts` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `name_sec` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `name_firts` varchar(30) NOT NULL,
+  `name_sec` varchar(255) DEFAULT NULL,
+  `address` varchar(45) NOT NULL,
   `hp` int(44) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `group_mmb` int(1) NOT NULL,
-  PRIMARY KEY (`id_mmb`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `group_mmb` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of member
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for pemasukan
--- ----------------------------
-DROP TABLE IF EXISTS `pemasukan`;
-CREATE TABLE `pemasukan`  (
+--
+-- Table structure for table `pemasukan`
+--
+
+CREATE TABLE `pemasukan` (
   `id_pemasukan` smallint(6) NOT NULL,
-  `tanggal_pemasukan` datetime(0) NULL DEFAULT NULL,
-  `keuntungan` int(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_pemasukan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `tanggal_pemasukan` datetime DEFAULT NULL,
+  `keuntungan` int(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of pemasukan
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for pembelian
--- ----------------------------
-DROP TABLE IF EXISTS `pembelian`;
-CREATE TABLE `pembelian`  (
+--
+-- Table structure for table `pembelian`
+--
+
+CREATE TABLE `pembelian` (
   `id_pembelian` smallint(6) NOT NULL,
-  `kuantiti_pembelian` int(11) NULL DEFAULT NULL,
-  `tanggal_pembelian` datetime(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_pembelian`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `kuantiti_pembelian` int(11) DEFAULT NULL,
+  `tanggal_pembelian` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of pembelian
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for penjualan
--- ----------------------------
-DROP TABLE IF EXISTS `penjualan`;
-CREATE TABLE `penjualan`  (
+--
+-- Table structure for table `penjualan`
+--
+
+CREATE TABLE `penjualan` (
   `id_penjualan` smallint(6) NOT NULL,
-  `kuantiti_penjualan` int(11) NULL DEFAULT NULL,
-  `tanggal_penjualan` datetime(0) NULL DEFAULT NULL,
-  `total_harga_penjualan` int(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_penjualan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `kuantiti_penjualan` int(11) DEFAULT NULL,
+  `tanggal_penjualan` datetime DEFAULT NULL,
+  `total_harga_penjualan` int(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of penjualan
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for pesan
--- ----------------------------
-DROP TABLE IF EXISTS `pesan`;
-CREATE TABLE `pesan`  (
-  `id_pesan` smallint(6) NOT NULL,
-  `tanggal_pesan` datetime(0) NULL DEFAULT NULL,
-  `isi_pesan` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id_pesan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+--
+-- Table structure for table `pesan`
+--
 
--- ----------------------------
--- Records of pesan
--- ----------------------------
+CREATE TABLE `pesan` (
+  `id_pesan` int(6) NOT NULL,
+  `tanggal_pesan` datetime DEFAULT NULL,
+  `isi_pesan` mediumtext,
+  `unicode` varchar(50) NOT NULL,
+  `penerima` varchar(50) NOT NULL,
+  `pengirim` varchar(50) NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for petani
--- ----------------------------
-DROP TABLE IF EXISTS `petani`;
-CREATE TABLE `petani`  (
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `tanggal_pesan`, `isi_pesan`, `unicode`, `penerima`, `pengirim`, `status`) VALUES
+(1, '2020-10-24 00:00:00', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis minima enim fugiat optio assumenda harum dolorem ducimus eaque, vitae vel veritatis sunt molestiae repellat architecto cupiditate exercitationem molestias autem ipsa.', 'AT11', 'admin', 'tengkulak', 'D'),
+(2, '2020-10-24 00:00:00', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis minima enim fugiat optio assumenda harum dolorem ducimus eaque, vitae vel veritatis sunt molestiae repellat architecto cupiditate exercitationem molestias autem ipsa.', 'AT11', 'tengkulak', 'admin', 'D'),
+(3, '2020-10-24 00:00:00', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis minima enim fugiat optio assumenda harum dolorem ducimus eaque, vitae vel veritatis sunt molestiae repellat architecto cupiditate exercitationem molestias autem ipsa.', 'AP11', 'admin', 'petani', 'D'),
+(4, '2020-10-24 00:00:00', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis minima enim fugiat optio assumenda harum dolorem ducimus eaque, vitae vel veritatis sunt molestiae repellat architecto cupiditate exercitationem molestias autem ipsa.', 'AP11', 'petani', 'admin', 'D'),
+(13, '2020-10-24 19:28:17', 'testing', 'AP11', 'admin', 'petani', ''),
+(14, '2020-10-24 19:28:26', 'testing lagi', 'AP11', 'admin', 'petani', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `petani`
+--
+
+CREATE TABLE `petani` (
   `id_petani` smallint(6) NOT NULL,
-  `nama_petani` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `nik_petani` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `email_petani` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `password_petani` char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `tanggal_lahir_petani` date NULL DEFAULT NULL,
-  `alamat_petani` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `kontak_petani` char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `foto_petani` mediumblob NULL,
-  PRIMARY KEY (`id_petani`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `nama_petani` varchar(100) DEFAULT NULL,
+  `nik_petani` char(20) DEFAULT NULL,
+  `email_petani` varchar(50) DEFAULT NULL,
+  `password_petani` char(15) DEFAULT NULL,
+  `tanggal_lahir_petani` date DEFAULT NULL,
+  `alamat_petani` varchar(500) DEFAULT NULL,
+  `kontak_petani` char(15) DEFAULT NULL,
+  `foto_petani` mediumblob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of petani
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for produk
--- ----------------------------
-DROP TABLE IF EXISTS `produk`;
-CREATE TABLE `produk`  (
+--
+-- Table structure for table `produk`
+--
+
+CREATE TABLE `produk` (
   `id_produk` smallint(6) NOT NULL,
-  `nama_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `foto_produk` longblob NULL,
-  `tanggal_panen` datetime(0) NULL DEFAULT NULL,
-  `stok_produk` int(11) NULL DEFAULT NULL,
-  `deskripsi_produk` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `harga_produk` int(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_produk`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `nama_produk` varchar(100) DEFAULT NULL,
+  `foto_produk` longblob,
+  `tanggal_panen` datetime DEFAULT NULL,
+  `stok_produk` int(11) DEFAULT NULL,
+  `deskripsi_produk` varchar(300) DEFAULT NULL,
+  `harga_produk` int(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of produk
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for role
--- ----------------------------
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE `role`  (
-  `role_id` int(11) NOT NULL AUTO_INCREMENT,
-  `role_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `is_status` int(1) NOT NULL,
-  PRIMARY KEY (`role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+--
+-- Table structure for table `role`
+--
 
--- ----------------------------
--- Records of role
--- ----------------------------
-INSERT INTO `role` VALUES (1, 'Development', 1);
-INSERT INTO `role` VALUES (2, 'Admin', 1);
-INSERT INTO `role` VALUES (3, 'Tengkulak', 1);
-INSERT INTO `role` VALUES (4, 'Petani', 1);
-
--- ----------------------------
--- Table structure for tengkulak
--- ----------------------------
-DROP TABLE IF EXISTS `tengkulak`;
-CREATE TABLE `tengkulak`  (
-  `id_tengkulak` smallint(6) NOT NULL,
-  `nama_depan_tengkulak` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `nama_belakang_tengkulak` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `email_tengkulak` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `password_tengkulak` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `kontak_tengkulak` char(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `foto_tengkulak` mediumblob NULL,
-  PRIMARY KEY (`id_tengkulak`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tengkulak
--- ----------------------------
-
--- ----------------------------
--- Table structure for transaksi
--- ----------------------------
-DROP TABLE IF EXISTS `transaksi`;
-CREATE TABLE `transaksi`  (
-  `id_transaksi` smallint(6) NOT NULL,
-  `tanggal_transaksi` datetime(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_transaksi`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of transaksi
--- ----------------------------
-
--- ----------------------------
--- Table structure for user
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
-  `id_user` int(12) NOT NULL AUTO_INCREMENT,
-  `username` varchar(125) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(125) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `stat` int(1) NOT NULL,
-  `email` varchar(125) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
-  PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `role_name` varchar(30) NOT NULL,
+  `is_status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', '1234567', 1, 'admin.software@gmail.com', 2);
+--
+-- Dumping data for table `role`
+--
 
-SET FOREIGN_KEY_CHECKS = 1;
+INSERT INTO `role` (`role_id`, `role_name`, `is_status`) VALUES
+(1, 'Development', 1),
+(2, 'Admin', 1),
+(3, 'Tengkulak', 1),
+(4, 'Petani', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tengkulak`
+--
+
+CREATE TABLE `tengkulak` (
+  `id_tengkulak` smallint(6) NOT NULL,
+  `nama_depan_tengkulak` varchar(50) DEFAULT NULL,
+  `nama_belakang_tengkulak` varchar(50) DEFAULT NULL,
+  `email_tengkulak` varchar(50) DEFAULT NULL,
+  `password_tengkulak` varchar(50) DEFAULT NULL,
+  `kontak_tengkulak` char(15) DEFAULT NULL,
+  `foto_tengkulak` mediumblob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` smallint(6) NOT NULL,
+  `tanggal_transaksi` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(12) NOT NULL,
+  `username` varchar(125) NOT NULL,
+  `password` varchar(125) NOT NULL,
+  `stat` int(1) NOT NULL,
+  `email` varchar(125) NOT NULL,
+  `role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `stat`, `email`, `role_id`) VALUES
+(1, 'admin', '1234567', 1, 'admin.software@gmail.com', 2),
+(2, 'petani', '1234567', 1, '', 4);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`) USING BTREE;
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`) USING BTREE;
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id_mmb`) USING BTREE;
+
+--
+-- Indexes for table `pemasukan`
+--
+ALTER TABLE `pemasukan`
+  ADD PRIMARY KEY (`id_pemasukan`) USING BTREE;
+
+--
+-- Indexes for table `pembelian`
+--
+ALTER TABLE `pembelian`
+  ADD PRIMARY KEY (`id_pembelian`) USING BTREE;
+
+--
+-- Indexes for table `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD PRIMARY KEY (`id_penjualan`) USING BTREE;
+
+--
+-- Indexes for table `pesan`
+--
+ALTER TABLE `pesan`
+  ADD PRIMARY KEY (`id_pesan`) USING BTREE;
+
+--
+-- Indexes for table `petani`
+--
+ALTER TABLE `petani`
+  ADD PRIMARY KEY (`id_petani`) USING BTREE;
+
+--
+-- Indexes for table `produk`
+--
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`id_produk`) USING BTREE;
+
+--
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`role_id`) USING BTREE;
+
+--
+-- Indexes for table `tengkulak`
+--
+ALTER TABLE `tengkulak`
+  ADD PRIMARY KEY (`id_tengkulak`) USING BTREE;
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`) USING BTREE;
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`) USING BTREE;
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id_mmb` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pesan`
+--
+ALTER TABLE `pesan`
+  MODIFY `id_pesan` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
