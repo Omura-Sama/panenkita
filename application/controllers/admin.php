@@ -69,7 +69,8 @@ class Admin extends CI_Controller
     }
     public function tambahkategori()
     {
-        $this->load->view('admin/tambahkategori');
+        $data['kategori'] = $this->M_admin->getKategori($_GET['id']);
+        $this->load->view('admin/tambahkategori', $data);
     }
     public function tambahpetani()
     {

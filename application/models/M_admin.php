@@ -69,5 +69,15 @@ class M_admin extends CI_Model
 		if ($this->db->affected_rows() > 0) {
 			return true; // to the controller
 		}
+    }
+    
+	public function getKategori($id)
+	{
+		$this->db->select('*');
+		$this->db->from('kategori');
+		$this->db->where('id_kategori', $id);
+
+		$query = $this->db->get();
+		return $query->result();
 	}
 }
