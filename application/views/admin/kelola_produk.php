@@ -10,7 +10,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            <th style="background: #264E36; color:#ffffff;">NO.</th>
+                                <th style="background: #264E36; color:#ffffff;">NO.</th>
                                 <th style="background: #264E36; color:#ffffff;">Nama Produk</th>
                                 <th style="background: #264E36; color:#ffffff;">Foto</th>
                                 <th style="background: #264E36; color:#ffffff;">Nama Petani</th>
@@ -23,23 +23,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($listproduk as $key ): ?>
+                            <?php $i = 1; ?>
+                            <?php foreach ($listproduk as $key) : ?>
                                 <tr>
-                                    <td><?= $key->id_produk; ?></td>
+                                    <td><?= $i++ ?></td>
                                     <td><?= $key->nama_produk; ?></td>
                                     <td><?= $key->foto_produk; ?></td>
                                     <td><?= $key->nama_petani; ?></td>
-                                    <td><?= $key->name_kategori; ?></td>
+                                    <td><?= $key->nama_kategori; ?></td>
                                     <td><?= $key->tanggal_panen; ?></td>
                                     <td><?= $key->stok_produk; ?></td>
                                     <td><?= $key->deskripsi_produk; ?></td>
-                                    <td><?= "Rp.".$key->harga_produk; ?></td>
+                                    <td><?= "Rp." . $key->harga_produk; ?></td>
                                     <td>
-                                        <!-- <a style="color: blue;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> ubah</a> |
-                                        <a style="color: red;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> hapus</a> -->
-                                        <a style="color: blue;" href="#"> ubah</a> |
-                                        <a style="color: red;" href="#"> hapus</a>
-                                    </td>                               
+                                        <a style="color: blue;" href="<?php echo site_url('admin/tambahproduk/?id_produk=' . $key->id_produk) ?>"> ubah</a> |
+                                        <a style="color: red;" href="<?php echo site_url('admin/deleteProduk/?id_produk=' . $key->id_produk) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini ?')"> hapus</a>
+                                    </td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>

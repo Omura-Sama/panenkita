@@ -41,7 +41,7 @@ CREATE TABLE `admin`  (
 DROP TABLE IF EXISTS `kategori`;
 CREATE TABLE `kategori`  (
   `id_kategori` smallint(6) NOT NULL,
-  `name_kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `nama_kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `tipe_panen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `PPN` int(20) NULL DEFAULT NULL,
   `kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
