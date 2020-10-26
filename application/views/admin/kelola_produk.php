@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header'); ?>
-<?php $this->load->view('layout/navbar_petani'); ?>
+<?php $this->load->view('layout/navbar'); ?>
 <div class="container-fluid">
     <div class="row" style="background-color:white;padding-top: 100px;">
 
@@ -10,31 +10,36 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            <th style="background: #264E36; color:#ffffff;">No.</th>
+                            <th style="background: #264E36; color:#ffffff;">NO.</th>
                                 <th style="background: #264E36; color:#ffffff;">Nama Produk</th>
                                 <th style="background: #264E36; color:#ffffff;">Foto</th>
+                                <th style="background: #264E36; color:#ffffff;">Nama Petani</th>
+                                <th style="background: #264E36; color:#ffffff;">Kategori</th>
                                 <th style="background: #264E36; color:#ffffff;">Tanggal Panen</th>
-                                <th style="background: #264E36; color:#ffffff;">Kode Pemasukan</th>
-                                <th style="background: #264E36; color:#ffffff;">Tanggal Pemasukan</th>
-                                <th style="background: #264E36; color:#ffffff;">Status</th>
-                                <th style="background: #264E36; color:#ffffff;">Pemasukan</th>
+                                <th style="background: #264E36; color:#ffffff;">Stok/Kuintal</th>
+                                <th style="background: #264E36; color:#ffffff;">Deskripsi Produk</th>
+                                <th style="background: #264E36; color:#ffffff;">Harga</th>
                                 <th style="background: #264E36; color:#ffffff;">Detail</th>
                             </tr>
                         </thead>
-                        <tbody>                           
-                            <?php $no=0; foreach ($incomeP as $key ): $no++; ?>
+                        <tbody>
+                            <?php foreach ($listproduk as $key ): ?>
                                 <tr>
-                                    <td><?= $no; ?></td>
+                                    <td><?= $key->id_produk; ?></td>
                                     <td><?= $key->nama_produk; ?></td>
                                     <td><?= $key->foto_produk; ?></td>
+                                    <td><?= $key->nama_petani; ?></td>
+                                    <td><?= $key->name_kategori; ?></td>
                                     <td><?= $key->tanggal_panen; ?></td>
-                                    <td><?= $key->id_pemasukan; ?></td>
-                                    <td><?= $key->tanggal_pemasukan; ?></td>
-                                    <td>boolean</td>
-                                    <td><?= "Rp.".$key->keuntungan; ?></td>
+                                    <td><?= $key->stok_produk; ?></td>
+                                    <td><?= $key->deskripsi_produk; ?></td>
+                                    <td><?= "Rp.".$key->harga_produk; ?></td>
                                     <td>
-                                        <a href="<?php echo site_url('Petani/statPenghasilan/'.$key->id_produk) ?>"> Cek</a>
-                                    </td>                             
+                                        <!-- <a style="color: blue;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> ubah</a> |
+                                        <a style="color: red;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> hapus</a> -->
+                                        <a style="color: blue;" href="#"> ubah</a> |
+                                        <a style="color: red;" href="#"> hapus</a>
+                                    </td>                               
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
@@ -42,6 +47,7 @@
                 </div>
 
                 <div style="color: #ffffff; border-radius: 0px 0px 10px 10px; background-color: #8d9449; padding: 20px 10px 10px 10px; font-size:12px;">
+                    <a style=" border-radius: 2px 2px 2px 2px; font-size:12px; padding: 5px 5px 5px 5px; background-color: #264E36; color: #ffffff;" href="<?= site_url('Admin/tambahproduk'); ?>">Tambah Petani</a>
                 </div>
             </div>
             <center style="font-size:14px;padding:10px;">

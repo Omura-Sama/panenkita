@@ -10,39 +10,48 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="background: #264E36; color:#ffffff;">NO.</th>
-                                <th style="background: #264E36; color:#ffffff;">Nama Produk</th>
-                                <th style="background: #264E36; color:#ffffff;">Gambar</th>
-                                <th style="background: #264E36; color:#ffffff;">Tanggal Panen</th>
-                                <th style="background: #264E36; color:#ffffff;">Kode Pemasukan</th>
-                                <th style="background: #264E36; color:#ffffff;">Tanggal Pemasukan</th>
-                                <th style="background: #264E36; color:#ffffff;">Status</th>
-                                <th style="background: #264E36; color:#ffffff;">Pemasukan</th>
-                                <th style="background: #264E36; color:#ffffff;">Detail</th>
+                                <th style="background: #264E36; color:#ffffff;">No.</th>
+                                <th style="background: #264E36; color:#ffffff;">Nama Petani</th>
+                                <th style="background: #264E36; color:#ffffff;">Foto</th>
+                                <th style="background: #264E36; color:#ffffff;">Email</th>
+                                <th style="background: #264E36; color:#ffffff;">Password</th>
+                                <th style="background: #264E36; color:#ffffff;">Tanggal Lahir</th>
+                                <th style="background: #264E36; color:#ffffff;">NIK</th>
+                                <th style="background: #264E36; color:#ffffff;">Alamat</th>
+                                <th style="background: #264E36; color:#ffffff;">Kontak </th>
+                                <th style="background: #264E36; color:#ffffff;">Hasil</th>
+                                <th style="background: #264E36; color:#ffffff;">Ubah Data</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php for ($i = 1; $i <= 20; $i++) : ?>
+                            <?php foreach ($listpetani as $key ): ?>
                                 <tr>
-                                    <td><?= $i ?></td>
-                                    <td>Pisang</td>
-                                    <td>null</td>
-                                    <td>tes</td>
-                                    <td>tes</td>
-                                    <td>tes</td>
-                                    <td>tes</td>
-                                    <td>tes</td>
+                                    <td><?= $key->id_petani; ?></td>
+                                    <td><?= $key->nama_depan_petani." ".$key->nama_belakang_petani; ?></td>
+                                    <td><?= $key->foto_petani; ?></td>
+                                    <td><?= $key->email_petani; ?></td>
+                                    <td><?= $key->password_petani; ?></td>
+                                    <td><?= $key->tanggal_lahir_petani; ?></td>
+                                    <td><?= $key->nik_petani; ?></td>
+                                    <td><?= $key->alamat_petani; ?></td>
+                                    <td><?= $key->kontak_petani; ?></td>
                                     <td>
                                         <a href="<?php echo site_url('Petani/statPenghasilan/') ?>"> Cek</a>
                                     </td>
+                                    <td>
+                                        <!-- <a style="color: blue;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> ubah</a> |
+                                        <a style="color: red;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> hapus</a> -->
+                                        <a style="color: blue;" href="#"> ubah</a> |
+                                        <a style="color: red;" href="#"> hapus</a>
+                                    </td>                                   
                                 </tr>
-                            <?php endfor ?>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
 
                 <div style="color: #ffffff; border-radius: 0px 0px 10px 10px; background-color: #8d9449; padding: 20px 10px 10px 10px; font-size:12px;">
-
+                    <a style=" border-radius: 2px 2px 2px 2px; font-size:12px; padding: 5px 5px 5px 5px; background-color: #264E36; color: #ffffff;" href="<?= site_url('Admin/tambahpetani'); ?>">Tambah Petani</a>
                 </div>
             </div>
             <center style="font-size:14px;padding:10px;">

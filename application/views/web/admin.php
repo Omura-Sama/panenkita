@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header'); ?>
-<?php $this->load->view('layout/navbar_admin'); ?>
+<?php $this->load->view('layout/navbar'); ?>
 
 <div class="container-fluid">
     <div class="row" style="padding-top: 100px;">
