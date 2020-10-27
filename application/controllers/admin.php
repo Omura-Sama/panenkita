@@ -69,38 +69,50 @@ class Admin extends CI_Controller
     }
     public function tambahkategori()
     {
-        $this->load->view('admin/tambahkategori');
+        $data['kategori'] = '';
+        if ($_GET) {
+            $data['kategori'] = $this->M_admin->getKategori($_GET['id']);
+        }
+        $this->load->view('admin/tambahkategori', $data);
     }
     public function tambahpetani()
     {
-        $this->load->view('admin/tambahpetani');
+        $data['petani'] = '';
+        if ($_GET) {
+            $data['petani'] = $this->M_petani->getPetani($_GET['id_petani']);
+        }
+        $this->load->view('admin/tambahpetani', $data);
     }
     public function kelolapetani()
     {
         $data['listpetani'] = $this->M_admin->getAllpetani();
-        $this->load->view('admin/kelola_petani',$data);
+        $this->load->view('admin/kelola_petani', $data);
     }
     public function kelolaproduk()
     {
         $data['listproduk'] = $this->M_admin->getAllproduk();
-        $this->load->view('admin/kelola_produk',$data);
+        $this->load->view('admin/kelola_produk', $data);
     }
     public function kelolakategori()
     {
         $data['listkategori'] = $this->M_admin->getAllkategori();
-        $this->load->view('admin/kelola_kategori',$data);
+        $this->load->view('admin/kelola_kategori', $data);
     }
 
     public function kelolatransaksi()
     {
         $data['listtransaksi'] = $this->M_admin->getAlltransaksi();
-        $this->load->view('admin/kelola_transaksi',$data);
+        $this->load->view('admin/kelola_transaksi', $data);
     }
 
     public function tambahproduk()
     {
         $data['listpetani'] = $this->M_petani->getListPetani();
         $data['listkategori'] = $this->M_kategori->getListKategori();
+        $data['produk'] = '';
+        if ($_GET) {
+            $data['produk'] = $this->M_admin->getProduk($_GET['id_produk']);
+        }
         $this->load->view('admin/tambahproduk', $data);
     }
 
@@ -109,7 +121,7 @@ class Admin extends CI_Controller
         $dataProduk = array(
             'nama_produk' => $this->input->post('nama_produk'),
             'nama_petani' => $this->input->post('nama_petani'),
-            'name_kategori' => $this->input->post('kategori'),
+            'nama_kategori' => $this->input->post('kategori'),
             'foto_produk' => $this->input->post('foto'),
             'tanggal_panen' => $this->input->post('tanggal'),
             'stok_produk' => $this->input->post('stok'),
@@ -117,19 +129,25 @@ class Admin extends CI_Controller
             'harga_produk' => $this->input->post('harga'),
         );
 
-        // print_r($dataProduk);
-        $insert = $this->M_produk->insert($dataProduk);
+        if ($this->input->post('id')) {
+            $insert = $this->M_produk->update($this->input->post('id'), $dataProduk);
+            $text = 'diubah';
+        } else {
+            $insert = $this->M_produk->insert($dataProduk);
+            $text = 'ditambah';
+        }
 
-        // print_r($insert);
-
-        if ($insert == 1) {
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ditambah. </div>');
+        if ($insert) {
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ' . $text . '. </div>');
         } else {
             $this->session->set_flashdata('notif', '<div class="alert alert-warning alert-dismissible"> Gagal! Mohon cek kembali stock. </div>');
         }
 
+        $data['listpetani'] = $this->M_petani->getListPetani();
+        $data['listkategori'] = $this->M_kategori->getListKategori();
+        $data['produk'] = '';
         // redirect('admin/tambahkategori');
-        $this->load->view('admin/tambahproduk');
+        $this->load->view('admin/tambahproduk', $data);
     }
 
     public function insertKategori()
@@ -140,24 +158,27 @@ class Admin extends CI_Controller
         // $desc = $this->input->post('deskripsi');
 
         $dataKategori = array(
-            'name_kategori' => $this->input->post('nama_kategori'),
+            'nama_kategori' => $this->input->post('nama_kategori'),
             'tipe_panen' => $this->input->post('tipe_panen'),
             'ppn' => $this->input->post('ppn'),
             'deskripsi' => $this->input->post('deskripsi'),
         );
+        if ($this->input->post('id')) {
+            $insert = $this->M_kategori->update($this->input->post('id'), $dataKategori);
+            $text = 'diubah';
+        } else {
+            $insert = $this->M_kategori->insert($dataKategori);
+            $text = 'ditambah';
+        }
 
-        $insert = $this->M_kategori->insert($dataKategori);
-
-        // print_r($insert);
-
-        if ($insert == 1) {
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ditambah. </div>');
+        if ($insert) {
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ' . $text . '. </div>');
         } else {
             $this->session->set_flashdata('notif', '<div class="alert alert-warning alert-dismissible"> Gagal! Mohon cek kembali stock. </div>');
         }
 
-        // redirect('admin/tambahkategori');
-        $this->load->view('admin/tambahkategori');
+        $data['kategori'] = '';
+        $this->load->view('admin/tambahkategori', $data);
     }
 
     public function insertPetani()
@@ -179,17 +200,45 @@ class Admin extends CI_Controller
             'foto_petani' => $this->input->post('foto'),
         );
 
-        // print_r($dataPetani);
-        $insert = $this->M_petani->insert($dataPetani);
+        if ($this->input->post('id')) {
+            $insert = $this->M_petani->update($this->input->post('id'), $dataPetani);
+            $text = 'diubah';
+        } else {
+            $insert = $this->M_petani->insert($dataPetani);
+            $text = 'ditambah';
+        }
+
 
         // print_r($insert);
 
         if ($insert == 1) {
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ditambah. </div>');
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! Produk berhasil ' . $text . '. </div>');
         } else {
             $this->session->set_flashdata('notif', '<div class="alert alert-warning alert-dismissible"> Gagal! Mohon cek kembali stock. </div>');
         }
 
-        $this->load->view('admin/tambahpetani');
+        $data['petani'] = '';
+        $this->load->view('admin/tambahpetani', $data);
+    }
+
+    public function deleteKategori()
+    {
+        $this->M_kategori->delete($_GET['id_kategori']);
+        $data['listkategori'] = $this->M_admin->getAllkategori();
+        $this->load->view('admin/kelola_kategori', $data);
+    }
+
+    public function deletePetani()
+    {
+        $this->M_petani->delete($_GET['id_petani']);
+        $data['listpetani'] = $this->M_admin->getAllpetani();
+        $this->load->view('admin/kelola_petani', $data);
+    }
+
+    public function deleteProduk()
+    {
+        $this->M_produk->delete($_GET['id_produk']);
+        $data['listproduk'] = $this->M_admin->getAllproduk();
+        $this->load->view('admin/kelola_produk', $data);
     }
 }

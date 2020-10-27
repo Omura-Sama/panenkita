@@ -20,19 +20,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($listkategori as $key ): ?>
+                            <?php foreach ($listkategori as $key) : ?>
                                 <tr>
                                     <td><?= $key->id_kategori; ?></td>
-                                    <td><?= $key->name_kategori; ?></td>
+                                    <td><?= $key->nama_kategori; ?></td>
                                     <td><?= $key->tipe_panen; ?></td>
                                     <td><?= $key->PPN; ?></td>
                                     <td><?= $key->kategori; ?></td>
                                     <td><?= $key->deskripsi; ?></td>
                                     <td>
-                                        <!-- <a style="color: blue;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> ubah</a> |
-                                        <a style="color: red;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> hapus</a> -->
-                                        <a style="color: blue;" href="#"> ubah</a> |
-                                        <a style="color: red;" href="#"> hapus</a>
+                                        <a style="color: blue;" href="<?php echo site_url('admin/tambahkategori/?id=' . $key->id_kategori) ?>">
+                                            ubah</a> |
+                                        <a style="color: red;" href="<?php echo site_url('admin/deleteKategori/?id_kategori=' . $key->id_kategori) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini ?')">
+                                            hapus</a>
+                                        <!-- <a style="color: blue;" href="#"> ubah</a> |
+                                        <a style="color: red;" href="#"> hapus</a> -->
                                     </td>
                                 </tr>
                             <?php endforeach ?>

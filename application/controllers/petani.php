@@ -39,7 +39,7 @@ class Petani extends CI_Controller
         // $tes = $this->M_petani->getPetaniBio($idUser);
         // print_r($idUser);
 
-        $this->load->view('petani/akun_saya',$data);
+        $this->load->view('petani/akun_saya', $data);
     }
 
     public function editPetani()
@@ -56,20 +56,20 @@ class Petani extends CI_Controller
         $idUser = $this->session->userdata('iduser');
 
         $data['incomeP'] = $this->M_petani->getIncomePetani($idUser);
-        $this->load->view('petani/halaman_penghasilan',$data);
+        $this->load->view('petani/halaman_penghasilan', $data);
     }
 
     public function statPenghasilan()
     {
         // $data['incomeP'] = $this->M_petani->getIncomePetani();
-        $id = $this->uri->segment(3);        
+        $id = $this->uri->segment(3);
 
         $data['detailPeng'] = $this->M_produk->getProdukTrans($id);
 
-        $this->load->view('petani/status_penghasilan',$data);
+        $this->load->view('petani/status_penghasilan', $data);
     }
 
-        public function detailPenghasilan()
+    public function detailPenghasilan()
     {
         // $data['incomeP'] = $this->M_petani->getIncomePetani();
         $this->load->view('petani/penghasilan');
@@ -87,7 +87,7 @@ class Petani extends CI_Controller
         $dataProduk = array(
             'nama_produk' => $this->input->post('nama_produk'),
             'nama_petani' => $this->input->post('nama_petani'),
-            'name_kategori' => $this->input->post('kategori'),
+            'nama_kategori' => $this->input->post('kategori'),
             'foto_produk' => $this->input->post('foto'),
             'tanggal_panen' => $this->input->post('tanggal'),
             'stok_produk' => $this->input->post('stok'),
@@ -118,7 +118,7 @@ class Petani extends CI_Controller
         // $desc = $this->input->post('deskripsi');
 
         $dataKategori = array(
-            'name_kategori' => $this->input->post('nama_kategori'),
+            'nama_kategori' => $this->input->post('nama_kategori'),
             'tipe_panen' => $this->input->post('tipe_panen'),
             'ppn' => $this->input->post('ppn'),
             'deskripsi' => $this->input->post('deskripsi'),
@@ -174,7 +174,7 @@ class Petani extends CI_Controller
     public function edit()
     {
         // print_r($_POST);
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
 
             $id = $this->input->post('idUser');
             $namaDepan = $this->input->post('namaDepan');
@@ -187,7 +187,7 @@ class Petani extends CI_Controller
             $mth = $this->input->post('bulan');
             $year = $this->input->post('tahun');
 
-            $dateL = $year."-".$mth."-".$day;
+            $dateL = $year . "-" . $mth . "-" . $day;
 
             // echo $id;
             // echo "<br>";
@@ -205,41 +205,39 @@ class Petani extends CI_Controller
             // echo "<br>";
 
 
-        // print_r($dataInCab);
+            // print_r($dataInCab);
             // echo $id;
             // echo $namaCab;
             // echo $alamat;
             // echo $no_tlp_cab;
             // echo $pic;
-        $updateT = $this->M_petani->setPetani($id,$namaDepan,$namaBelakang,$tlpn,$alamat,$dateL);
-        $updateU = $this->M_petani->setUser($id,$email,$password);
-           
-           // $this->M_masterdata->insertCab($dataInCab);
+            $updateT = $this->M_petani->setPetani($id, $namaDepan, $namaBelakang, $tlpn, $alamat, $dateL);
+            $updateU = $this->M_petani->setUser($id, $email, $password);
 
-        // print_r($update);
+            // $this->M_masterdata->insertCab($dataInCab);
 
-        if($updateT && $updateU)
-        {
-            $this->session->set_flashdata('hasil','Update Data Berhasil');
-        }else
-        {
-           $this->session->set_flashdata('hasil','Update Data Gagal');
+            // print_r($update);
+
+            if ($updateT && $updateU) {
+                $this->session->set_flashdata('hasil', 'Update Data Berhasil');
+            } else {
+                $this->session->set_flashdata('hasil', 'Update Data Gagal');
+            }
+            redirect('petani/akunSaya');
+        } else {
+
+            $id = $this->uri->segment(3);
+            // echo $id;
+            $data["dataUser"] = $this->M_petani->getPetaniBio($id);
+            // echo $id;
+
+            // print_r($data)
+
+            // $data['dataitem'] = $query->row();
+
+            // if (!$data["dataitem"]) show_404();
+
+            $this->load->view('petani/kelola_akun', $data);
         }
-        redirect('petani/akunSaya');
-    }else{
-
-        $id = $this->uri->segment(3);
-        // echo $id;
-        $data["dataUser"] = $this->M_petani->getPetaniBio($id);
-        // echo $id;
-
-        // print_r($data)
-
-        // $data['dataitem'] = $query->row();
-
-        // if (!$data["dataitem"]) show_404();
-
-        $this->load->view('petani/kelola_akun',$data);
-    }
     }
 }

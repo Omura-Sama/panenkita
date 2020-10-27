@@ -24,11 +24,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php print_r($listtransaksi); ?>
-                            <?php foreach ($listtransaksi as $key ): ?>
+                            <?php foreach ($listtransaksi as $key) : ?>
                                 <tr>
                                     <td><?= $key->id_kategori; ?></td>
-                                    <td><?= $key->name_kategori; ?></td>
+                                    <td><?= $key->nama_kategori; ?></td>
                                     <td><?= $key->tipe_panen; ?></td>
                                     <td><?= $key->PPN; ?></td>
                                     <td><?= $key->kategori; ?></td>

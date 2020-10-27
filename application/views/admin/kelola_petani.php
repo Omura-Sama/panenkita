@@ -24,10 +24,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($listpetani as $key ): ?>
+                            <?php $i = 1; ?>
+                            <?php foreach ($listpetani as $key) : ?>
                                 <tr>
-                                    <td><?= $key->id_petani; ?></td>
-                                    <td><?= $key->nama_depan_petani." ".$key->nama_belakang_petani; ?></td>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $key->nama_petani; ?></td>
                                     <td><?= $key->foto_petani; ?></td>
                                     <td><?= $key->email_petani; ?></td>
                                     <td><?= $key->password_petani; ?></td>
@@ -39,11 +40,9 @@
                                         <a href="<?php echo site_url('Petani/statPenghasilan/') ?>"> Cek</a>
                                     </td>
                                     <td>
-                                        <!-- <a style="color: blue;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> ubah</a> |
-                                        <a style="color: red;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> hapus</a> -->
-                                        <a style="color: blue;" href="#"> ubah</a> |
-                                        <a style="color: red;" href="#"> hapus</a>
-                                    </td>                                   
+                                        <a style="color: blue;" href="<?php echo site_url('admin/tambahpetani/?id_petani=' . $key->id_petani) ?>"> ubah</a> |
+                                        <a style="color: red;" href="<?php echo site_url('admin/deletePetani/?id_petani=' . $key->id_petani) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini ?')"> hapus</a>
+                                    </td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
