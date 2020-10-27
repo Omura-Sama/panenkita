@@ -92,6 +92,17 @@ class M_petani extends CI_Model
 		return $query;
 	}
 
+	public function getProdTani($idUser)
+	{
+		$this->db->select('*');
+		$this->db->from($this->_table);
+		$this->db->join('produk', 'produk.id_petani = petani.id_petani', 'left');
+		// $this->db->join('pemasukan', 'pemasukan.id_petani = petani.id_petani', 'left');
+		// $this->db->where('petani.id_user =', $idUser);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function getIncomePetani($idUser)
 	{
 		$this->db->select('*');

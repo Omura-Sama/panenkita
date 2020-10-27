@@ -6,6 +6,8 @@
         <div class="col-2">
         </div>
         <div class="col-8">
+            <!-- <?php print_r($userData);?> -->
+            <?php foreach ($produkDetail as $key ): ?>
             <div class="card" style="border-radius: 10px;">
                 <div class="row" style="padding: 10px;">
                     <div class="col-10">
@@ -13,16 +15,19 @@
                             STATUS PEMBELIAN
                         </p>
                     </div>
-                    <div class="col-2"><a href="<?= site_url('tengkulak/pembelian'); ?>"
+                    <div class="col-2"><a href="<?= site_url('tengkulak/pembelian/'.$key->id_produk); ?>"
                             class="btn btn-danger">Kembali</a></div>
                 </div>
+            <?php endforeach ?>
+           
                 <div class="card-body table-responsive" style="height: 350px;padding:0px;">
+                <?php foreach ($userData as $key ): ?>
                     <table class="table table-head-fixed text-nowrap">
                         <tbody>
                             <tr>
                                 <td>
                                     <h5><b>Alamat Pengiriman</b></h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                                    <p><?= $key->alamat_tengkulak; ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +38,7 @@
                                             <p>Kode Pembayaran</p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Kode xxx</p>
+                                            <p>Kode <?= $key->id_transaksi; ?></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -56,15 +61,18 @@
                                     </div>
                                 </td>
                             </tr>
+                        <?php endforeach ?>
+
+                        <?php foreach ($produktransaksi as $key ): ?>
                             <tr>
                                 <td>
                                     <h5><b>Informasi Pesanan</b></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Nama Petani (Regular) xxx</p>
+                                            <p>Nama Petani <?= $key->nama_petani; ?></p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Tanggal Panen xxx</p>
+                                            <p>Tanggal Panen <br><?php $date = substr($key->tanggal_panen,0,10); echo $date; ?></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -73,40 +81,41 @@
                                                 alt="" width="80px" style="border-radius: 5px;">
                                         </div>
                                         <div class="col-6" style="padding-left:25px;">
-                                            <p>Nama Produk xxx</p>
-                                            <p>Rp. 0</p>
+                                            <p>Nama Produk <?= $key->nama_produk; ?></p>
+                                            <p>Rp. <?= $key->harga_produk; ?></p>
                                         </div>
-                                        <div class="col-5" align="right">
-                                            <p>Tanggal Panen xxx</p>
-                                            <p>Tanggal Transaksi xxx</p>
-                                            <p>Pesanan xxx</p>
+                                        <div class="col-5" align="right">                                           
+                                            <p>Tanggal Transaksi <br><?php $date = substr($key->tanggal_pembelian,0,10); echo $date; ?></p>
+                                            <!-- <p>Pesanan xxx</p> -->
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h5><b>Total Pembayaran</b></h5>
+                                    <h5><b>Total Pembayaran</b> </h5>
                                     <ul>
                                         <li>Pesanan di proses</li>
-                                        <p>Tanggal</p>
+                                        <p><?php $date = substr($key->tanggal_pembelian,0,10); echo $date; ?></p>
                                         <li>Pesanan di kemas</li>
-                                        <p>Tanggal</p>
+                                        <p>-</p>
                                         <li>Pesanan di kirim</li>
-                                        <p>Tanggal</p>
+                                        <p>-</p>
                                         <li>Pesanan di terima</li>
-                                        <p>Tanggal</p>
+                                        <p>-</p>
                                     </ul>
                                 </td>
                             </tr>
                         </tbody>
+                    <?php endforeach ?>
+
                     </table>
                 </div>
                 <div class="row">
                     <div class="col-9"></div>
                     <div class="col-3" style="padding: 10px;">
-                        <a href="<?= site_url('tengkulak/statuspembelian'); ?>" class="btn btn-default">Lihat
-                            Rincian</a>
+                        <!-- <a href="<?= site_url('tengkulak/statuspembelian'); ?>" class="btn btn-default">Lihat
+                            Rincian</a> -->
                     </div>
                 </div>
             </div>

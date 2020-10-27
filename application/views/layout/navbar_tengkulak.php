@@ -7,9 +7,9 @@
         </a>
         <div class="collapse navbar-collapse order-3" style="padding-left:30px;">
             <!-- SEARCH FORM -->
-            <form class="form-inline ml-0 ml-md-3">
+            <form class="form-inline ml-0 ml-md-3" action="<?php echo base_url() ?>index.php/tengkulak/hasilCari" method="POST">
                 <div class="input-group input-group-sm" style="background-color: white; border-radius:5px; width:300px">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Pencarian"
+                    <input class="form-control form-control-navbar" name="cari" type="search" placeholder="Pencarian"
                         aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
@@ -42,6 +42,9 @@
                     <i class="fas fa-caret-down"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                    <a href="<?= site_url('Tengkulak/akunSaya'); ?>?>" class="dropdown-item">Akun</a>
+                    <a href="#" class="dropdown-item">Tersimpan</a>
+                    <a href="<?= site_url('Tengkulak/riwayattransaksi'); ?>?>" class="dropdown-item">History</a>
                     <a href="<?= site_url('Login/logout'); ?>?>" class="dropdown-item">Logout</a>
                     <div class="dropdown-divider"></div>
                 </div>

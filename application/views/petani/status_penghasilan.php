@@ -87,7 +87,7 @@
                             <tr>
                                 <td style="text-align: center;">
                                     <!-- <a class="btn-default" style="color: white; width: 100px;" href="<?php echo site_url('Petani/detailPenghasilan/') ?>"> <b>DETAIL PENGHASILAN</b></a> -->
-                                    <a class="btn-default" style="color: white; width: 100px;" href="#"> <b>DETAIL PENGHASILAN</b></a>
+                                    <a class="btn-default" style="color: white; width: 100px;" href="<?php echo site_url('Petani/detailPenghasilan/'.$key->id_produk) ?>"> <b>DETAIL PENGHASILAN</b></a>
                                 </td>
                             </tr>
                         </tbody>

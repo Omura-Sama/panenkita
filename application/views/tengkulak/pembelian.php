@@ -7,22 +7,27 @@
         </div>
         <div class="col-8">
             <div class="card" style="border-radius: 10px;">
+            <?php foreach ($produkDetail as $key ): ?>
+
                 <div class="row" style="padding: 10px;">
                     <div class="col-10">
                         <p style="font-size: 20px; font-weight: bold; color:#264E36;">
                             PEMBELIAN ANDA
                         </p>
                     </div>
-                    <div class="col-2"><a href="<?= site_url('tengkulak/keranjang'); ?>"
+                    <div class="col-2"><a href="<?= site_url('tengkulak/keranjang/'.$key->id_produk); ?>"
                             class="btn btn-danger">Kembali</a></div>
                 </div>
                 <div class="card-body table-responsive" style="height: 350px;padding:0px;">
+            <?php endforeach ?>
+            <!-- <?php print_r($produkDetail);?> -->
+            <?php foreach ($userData as $key): ?>
                     <table class="table table-head-fixed text-nowrap">
                         <tbody>
                             <tr>
                                 <td>
                                     <h5><b>Alamat Pengiriman</b></h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                                    <p><?= $key->alamat_tengkulak; ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -34,21 +39,25 @@
                                             <p>Kode Pembayaran</p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Metode Pembbayaran xxx</p>
-                                            <p>Kode xxxxxx</p>
+                                            <p><?= $key->metode_transaksi; ?></p>
+                                            <p><?= $key->id_transaksi; ?></p>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
+
+                <?php endforeach ?>
+                
+                <?php foreach ($produkDetail as $key ): ?>
                             <tr>
                                 <td>
                                     <h5><b>Informasi Pesanan</b></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Nama Petani (Regular) xxx</p>
+                                            <p>Nama Petani <?= $key->nama_petani; ?></p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Tanggal Panen xxx</p>
+                                            <p>Tanggal Panen <br> <?php $date = substr($key->tanggal_panen,0,10); echo $date; ?></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -57,13 +66,12 @@
                                                 alt="" width="80px" style="border-radius: 5px;">
                                         </div>
                                         <div class="col-6" style="padding-left:25px;">
-                                            <p>Nama Produk xxx</p>
-                                            <p>Rp. 0</p>
+                                            <p>Nama Produk <?= $key->nama_produk; ?></p>
+                                            <p>Rp. <?= $key->harga_produk; ?></p>
                                         </div>
                                         <div class="col-5" align="right">
-                                            <p>Tanggal Panen xxx</p>
-                                            <p>Tanggal Transaksi xxx</p>
-                                            <p>Pesanan xxx</p>
+                                            <p>Tanggal Transaksi <br> <?php $date = substr($key->tanggal_pembelian,0,10); echo $date; ?></p>
+                                            <!-- <p>Pesanan xxx</p> -->
                                         </div>
                                     </div>
                                 </td>
@@ -73,12 +81,12 @@
                                     <h5><b>Total Pembayaran</b></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p>Rincian (Reguler)</p>
-                                            <p>Total (Reguler)</p>
+                                            <p>Rincian </p>
+                                            <p>Total </p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Rp. xxx x x</p>
-                                            <p>Rp. xxx x x</p>
+                                            <p>Rp. <?= $key->harga_produk; ?> x <?= $key->stok_produk; ?></p>
+                                            <p>Rp.<?= $key->harga_produk*$key->stok_produk; ?></p>
                                         </div>
                                     </div>
                                 </td>
@@ -112,11 +120,13 @@
                 <div class="row">
                     <div class="col-9"></div>
                     <div class="col-3" style="padding: 10px;">
-                        <a href="<?= site_url('tengkulak/statuspembelian'); ?>" class="btn btn-default">Lihat
+                        <a href="<?= site_url('tengkulak/statuspembelian/'.$key->id_produk); ?>" class="btn btn-default">Lihat
                             Rincian</a>
                     </div>
                 </div>
             </div>
+            <?php endforeach ?>
+
             <center style="font-size:14px;padding:10px;">
                 <p style="color:#264E36;"><b>&copy; 2020.</b> <img
                         src=" <?= base_url('assets/img/logo/text_eden_logo.png'); ?>" alt="" class="img-fluid"

@@ -57,6 +57,7 @@ class Page extends CI_Controller
 		// print_r($this->session->userdata());
 
 		$this->load->view('web/petani');
+		// redirect('web/petani');
 	}
 	public function editprofil()
 	{
