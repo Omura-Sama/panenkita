@@ -28,16 +28,39 @@ class Tengkulak extends CI_Controller
     {
         $idUser = $this->session->userdata('iduser');
         // echo $idUser;
-
         $data['userData'] = $this->M_tengkulak->getTengkulakBio($idUser);
         
         // print_r($getBio);
         // echo $idUser;
         $this->load->view('web/tengkulak',$data);
     }
+
+    public function akunSaya()
+    {
+        $idUser = $this->session->userdata('iduser');
+        $data['userData'] = $this->M_tengkulak->getTengkulakBio($idUser);
+        
+        // print_r($getBio);
+        // echo $idUser;
+        $this->load->view('web/tengkulak',$data);
+    }
+
+    public function hasilCari()
+    {
+        // $id = $this->uri->segment(3);
+        $cari = $this->input->post('cari');
+        $data["produk"] = $this->M_tengkulak->getProduk($cari);
+
+        // print_r($data1);
+
+        $this->load->view('tengkulak/halaman_produk',$data);
+    }
     public function informasibarang()
     {
-        $this->load->view('tengkulak/informasibarang');
+        $id = $this->uri->segment(3);
+        $data["produkDetail"] = $this->M_tengkulak->getDetailProduk($id);
+
+        $this->load->view('tengkulak/informasibarang',$data);
     }
     public function pemberitahuan()
     {
@@ -49,19 +72,51 @@ class Tengkulak extends CI_Controller
     }
     public function keranjang()
     {
-        $this->load->view('tengkulak/keranjang');
+        $id = $this->uri->segment(3);
+        if ($id != '') {
+            $data["produkDetail"] = $this->M_tengkulak->getDetailTransaksi($id);  
+        }else{
+            // echo $id;
+            $idUser = $this->session->userdata('iduser');
+            $data["produkDetail"] = $this->M_tengkulak->getProdukid($idUser);  
+            // print_r($this->session->userdata);
+        }
+
+        $idUser = $this->session->userdata('iduser');
+        $data['userData'] = $this->M_tengkulak->getTengkulakBio($idUser);
+
+        $this->load->view('tengkulak/keranjang',$data);
     }
     public function pembelian()
     {
-        $this->load->view('tengkulak/pembelian');
+        $id = $this->uri->segment(3);
+        $idUser = $this->session->userdata('iduser');
+
+        $data["produkDetail"] = $this->M_tengkulak->getDetailTransaksi($id);       
+        $data['userData'] = $this->M_tengkulak->getTengkulakBio($idUser);
+
+        $this->load->view('tengkulak/pembelian',$data);
     }
     public function statuspembelian()
     {
-        $this->load->view('tengkulak/statuspembelian');
+        $id = $this->uri->segment(3);
+        $idUser = $this->session->userdata('iduser');
+
+        $data["produkDetail"] = $this->M_tengkulak->getDetailProduk($id);       
+        $data["produktransaksi"] = $this->M_tengkulak->getDetailTransaksi($id);       
+        $data['userData'] = $this->M_tengkulak->getTengkulakBio($idUser);
+
+        $this->load->view('tengkulak/statuspembelian',$data);
     }
     public function transaksiproduk()
     {
-        $this->load->view('tengkulak/transaksiproduk');
+        $id = $this->uri->segment(3);
+        $idUser = $this->session->userdata('iduser');
+
+        $data["produkDetail"] = $this->M_tengkulak->getDetailProduk($id);       
+        $data['userData'] = $this->M_tengkulak->getTengkulakBio($idUser);
+
+        $this->load->view('tengkulak/transaksiproduk',$data);
     }
     public function detailtransaksi()
     {

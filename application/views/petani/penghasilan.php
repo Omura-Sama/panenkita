@@ -6,9 +6,11 @@
         <div class="col-2">
         </div>
         <div class="col-8">
+        <?php foreach ($detailPeng as $key ): ?>
+
             <div class="card" style="border-radius: 10px;">
                 <div class="row" style="padding: 10px;">
-                    <div class="col-2"><a href="<?= site_url('petani/statPenghasilan'); ?>" class="btn btn-danger">Kembali</a></div>
+                    <div class="col-2"><a href="<?= site_url('petani/statPenghasilan/'.$key->id_produk); ?>" class="btn btn-danger">Kembali</a></div>
                     <div class="col-10">
                         <p style="font-size: 20px; font-weight: bold; color:#264E36;">
                             DETAIL PENGHASILAN ANDA
@@ -17,28 +19,33 @@
                 </div>
                 <div class="card-body table-responsive" style="height: 410px;padding:0px;">
                     <table class="table table-head-fixed text-nowrap">
+                    <!-- <?php print_r($detailPeng); ?> -->
+
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="row">
                                         <div class="col-6">
                                             <h5><b>Kode Pemasukan</b></h5>
-
+                                            <h6><?= $key->id_pemasukan; ?></h6>
                                         </div>
                                         <div class="col-6" align="right">
                                             <h5><b>Tanggal Pemasukan</b></h5>
-
+                                            <h6><?php  $date = substr($key->tanggal_pemasukan,0,10);
+                                            echo $date; ?></h6>
                                         </div>
                                         <div class="col-1">
                                             <img class="imgPesan" src="<?= base_url('assets/img/pisang.jpeg'); ?>" alt="" width="80px" style="border-radius: 5px;">
                                         </div>
                                         <div class="col-6" style="padding-left:25px;">
-                                            <p>Nama Produk xxx</p>
-                                            <p>Rp. 0</p>
-                                            <p>Kuantiti</p>
+                                            <p>Nama Produk <?= $key->tanggal_pemasukan; ?></p>
+                                            <p>Rp. <?= $key->harga_produk; ?></p>
+                                            <p>Kuantiti <?= $key->kuantiti_pembelian; ?></p>
                                         </div>
                                         <div class="col-5" align="right">
-                                            <p>Tanggal Panen xxx</p>
+                                            <p>Tanggal Panen <?php $date = substr($key->tanggal_pemasukan,0,10);
+                                            ?></p>
+                                            <p><?php echo $date; ?></p>
                                         </div>
                                     </div>
                                 </td>
@@ -59,15 +66,17 @@
                                             <p>Biaya Operasional</p>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <p>Rp. Harga Produk</p>
-                                            <p>Qty</p>
-                                            <p>Kategori</p>
-                                            <p>PPN %</p>
-                                            <p>Kode Transaksi</p>
-                                            <p>Metode Transaksi</p>
-                                            <p>Nama Pembeli</p>
-                                            <p>Tanggal Pembelian</p>
-                                            <p>Biaya Operasional</p>
+                                            <p>Rp. <?= $key->harga_produk; ?></p>
+                                            <p><?= $key->kuantiti_pembelian; ?></p>
+                                            <p><?= $key->name_kategori; ?></p>
+                                            <p><?= $key->PPN; ?>%</p>
+                                            <p><?= $key->id_transaksi; ?></p>
+                                            <p> <?= $key->metode_transaksi; ?></p>
+                                            <p>Nama Pembeli  Nama Pembeli</p>
+                                            <p><?php 
+                                                $date = substr($key->tanggal_pembelian,0,10);
+                                                echo $date; ?></p>
+                                            <p></p>
                                         </div>
                                     </div>
                                 </td>
@@ -80,13 +89,14 @@
                                             <!-- <p>Nama Petani (Regular) xxx</p> -->
                                         </div>
                                         <div class="col-6" align="right">
-                                            <h5><b>Rp.</b></h5>
+                                            <h5><b>Rp. <?= ($key->harga_produk*$key->kuantiti_pembelian)-($key->harga_produk*($key->PPN/100)); ?></b></h5>
                                             <!-- <p>Tanggal Panen xxx</p> -->
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
+                    <?php endforeach ?>
                     </table>
                 </div>
             </div>

@@ -15,7 +15,7 @@
                         <div class="card-body table-responsive" style="height: 410px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <tbody>
-                                    <?php for ($i = 0; $i < 10; $i++) { ?>
+                                <?php foreach ($produkDetail as $key ): ?>
                                     <tr>
                                         <td>
                                             <div class="row">
@@ -25,8 +25,10 @@
                                                         width="80px" style="border-radius: 10px;">
                                                 </div>
                                                 <div class="col-8">
-                                                    <h5>Nama Produk</h5>
-                                                    <p>Kode Pembayaran</p>
+                                                    <h5>
+                                                       Nama Produk
+                                                    </h5>
+                                                    <p><?= $key->nama_produk; ?></p>
                                                     <p>
                                                         <input type="checkbox" name="proses" id="proses">
                                                         <label for="proses">Status di proses</label>
@@ -41,15 +43,18 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-2">
-                                                    <h6 class="pb-1">Tanggal <span class="fas fa-calendar-alt"></span>
+                                                    <h6 class="pb-1"><?php $date = substr($key->tanggal_pembelian,0,10);
+                                                    echo $date;
+                                                     ?> <span class="fas fa-calendar-alt"></span>
                                                     </h6>
-                                                    <a href="<?= site_url('tengkulak/pembelian'); ?>"
+                                                    <a href="<?= site_url('tengkulak/pembelian/'.$key->id_produk); ?>"
                                                         class="btn btn-default">Cek</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <?php } ?>
+                                <?php endforeach ?>
+
                                 </tbody>
                             </table>
                         </div>

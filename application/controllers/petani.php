@@ -48,7 +48,21 @@ class Petani extends CI_Controller
     }
     public function produkAnda()
     {
-        $this->load->view('petani/produk_anda');
+        $idUser = $this->session->userdata('iduser');
+        // $data1 = $this->M_petani->getProdTani($idUser);
+        // print_r($data1);
+        $data['produkTani'] = $this->M_petani->getProdTani($idUser);
+
+        $this->load->view('petani/produk_anda',$data);
+    }
+
+    public function detailProdukAnda()
+    {
+        $id = $this->uri->segment(3);
+
+
+        // $this->load->view('petani/produk_anda',$data);
+        
     }
 
     public function halPenghasilan()
@@ -71,8 +85,11 @@ class Petani extends CI_Controller
 
     public function detailPenghasilan()
     {
+        $id = $this->uri->segment(3);
+        $data['detailPeng'] = $this->M_produk->getProdukTrans($id);
+
         // $data['incomeP'] = $this->M_petani->getIncomePetani();
-        $this->load->view('petani/penghasilan');
+        $this->load->view('petani/penghasilan',$data);
     }
 
     public function tambahproduk()
