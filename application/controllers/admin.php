@@ -35,10 +35,12 @@ class Admin extends CI_Controller
     }
     public function listpesan()
     {
-        // die(print_r($this->session->userdata()));
-        $user = $this->session->userdata('user');
-        $data['isipesan'] = $this->M_admin->getIsiPesan($user);
+        $jenis = $_GET['jenis'];
+        $data['isipesan'] = $this->M_admin->getIsiPesan($jenis, $this->session->userdata('iduser'));
+        $this->load->view('layout/header');
+        $this->load->view('layout/navbar');
         $this->load->view('pesan/listpesan', $data);
+        $this->load->view('layout/footer');
     }
     public function isipesan()
     {
@@ -46,13 +48,16 @@ class Admin extends CI_Controller
         $data['tanggal'] = $_GET['tanggal'];
         $data['unicode'] = $_GET['unicode'];
         $data['pesan'] = $this->M_admin->getPesan($_GET['unicode']);
+        $this->load->view('layout/header');
+        $this->load->view('layout/navbar');
         $this->load->view('pesan/isipesan', $data);
+        $this->load->view('layout/footer');
     }
     public function insertPesan()
     {
         $dataPesan = array(
             'unicode' => $this->input->post('unicode'),
-            'penerima' => $this->input->post('penerima'),
+            'id_user' => $this->input->post('id_user'),
             'pengirim' => $this->input->post('pengirim'),
             'isi_pesan' => $this->input->post('isi_pesan'),
             'tanggal_pesan' => date('Y-m-d H:i:s'),

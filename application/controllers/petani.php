@@ -6,7 +6,7 @@ class Petani extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(array('M_kategori', 'M_petani', 'M_produk'));
+        $this->load->model(array('M_admin', 'M_kategori', 'M_petani', 'M_produk'));
     }
 
     /**
@@ -53,7 +53,7 @@ class Petani extends CI_Controller
         // print_r($data1);
         $data['produkTani'] = $this->M_petani->getProdTani($idUser);
 
-        $this->load->view('petani/produk_anda',$data);
+        $this->load->view('petani/produk_anda', $data);
     }
 
     public function detailProdukAnda()
@@ -62,7 +62,7 @@ class Petani extends CI_Controller
 
 
         // $this->load->view('petani/produk_anda',$data);
-        
+
     }
 
     public function halPenghasilan()
@@ -89,7 +89,7 @@ class Petani extends CI_Controller
         $data['detailPeng'] = $this->M_produk->getProdukTrans($id);
 
         // $data['incomeP'] = $this->M_petani->getIncomePetani();
-        $this->load->view('petani/penghasilan',$data);
+        $this->load->view('petani/penghasilan', $data);
     }
 
     public function tambahproduk()
@@ -256,5 +256,26 @@ class Petani extends CI_Controller
 
             $this->load->view('petani/kelola_akun', $data);
         }
+    }
+
+    public function listpesan()
+    {
+        $jenis = $_GET['jenis'];
+        $data['isipesan'] = $this->M_admin->getIsiPesan($jenis, $this->session->userdata('iduser'));
+        $this->load->view('layout/header');
+        $this->load->view('layout/navbar_petani');
+        $this->load->view('pesan/listpesan', $data);
+        $this->load->view('layout/footer');
+    }
+    public function isipesan()
+    {
+        $data['pengirim'] = $_GET['pengirim'];
+        $data['tanggal'] = $_GET['tanggal'];
+        $data['unicode'] = $_GET['unicode'];
+        $data['pesan'] = $this->M_admin->getPesan($_GET['unicode']);
+        $this->load->view('layout/header');
+        $this->load->view('layout/navbar_petani');
+        $this->load->view('pesan/isipesan', $data);
+        $this->load->view('layout/footer');
     }
 }

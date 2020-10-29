@@ -1,6 +1,3 @@
-<?php $this->load->view('layout/header'); ?>
-<?php $this->load->view('layout/navbar'); ?>
-
 <div class="container-fluid" style="background-color:#ffffff; padding-top:80px;">
     <div class=" row">
         <div class="col-2">
@@ -23,12 +20,12 @@
                         <table class="table table-head-fixed">
                             <tbody>
                                 <?php foreach ($pesan as $isiPesan) : ?>
-                                    <?php if ($isiPesan->penerima == $this->session->userdata('user')) : ?>
+                                    <?php if ($isiPesan->id_user == $this->session->userdata('iduser')) : ?>
                                         <tr>
                                             <td>
                                                 <div class="row">
                                                     <div class="col-10">
-                                                        <h5><b><?= strtoupper($isiPesan->penerima) ?></b></h5>
+                                                        <h5><b><?= strtoupper($isiPesan->username) ?></b></h5>
                                                         <p><?= $isiPesan->isi_pesan ?></p>
                                                     </div>
                                                     <div class="col-2">
@@ -38,17 +35,19 @@
                                             </td>
                                         </tr>
                                     <?php else : ?>
-                                        <td>
-                                            <div class="row">
-                                                <div class="col-2">
-                                                    <img class="imgPesan" src="<?= base_url('assets/img/user.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <img class="imgPesan" src="<?= base_url('assets/img/user.jpg'); ?>" alt="" width="60px" style="border-radius: 30px;">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h5><b><?= strtoupper($isiPesan->username) ?></b></h5>
+                                                        <p><?= $isiPesan->isi_pesan ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-10">
-                                                    <h5><b><?= strtoupper($isiPesan->penerima) ?></b></h5>
-                                                    <p><?= $isiPesan->isi_pesan ?></p>
-                                                </div>
-                                            </div>
-                                        </td>
+                                            </td>
+                                        </tr>
                                     <?php endif ?>
                                 <?php endforeach ?>
                             </tbody>
@@ -58,7 +57,7 @@
                         <div class="row">
                             <div class="col">
                                 <input type="hidden" name="pengirim" id="pengirim" value="<?= $pengirim ?>">
-                                <input type="hidden" name="penerima" id="penerima" value="<?= $this->session->userdata('user') ?>">
+                                <input type="hidden" name="id_user" id="id_user" value="<?= $this->session->userdata('iduser') ?>">
                                 <input type="hidden" name="unicode" id="unicode" value="<?= $unicode ?>">
                                 <div class="input-group">
                                     <div class="wrap-input100 validate-input m-t-10 m-b-20" data-validate="Masukan Pesan">
@@ -89,4 +88,3 @@
         </div>
     </div>
 </div>
-<?php $this->load->view('layout/footer'); ?>

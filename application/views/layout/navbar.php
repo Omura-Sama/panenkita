@@ -40,9 +40,9 @@
                     <span class="badge badge-warning navbar-badge">1</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                    <a href="<?= site_url('admin/listpesan') ?>" class="dropdown-item">Pesan tengkulak </a>
+                    <a href="<?= site_url('admin/listpesan/?jenis=tengkulak') ?>" class="dropdown-item">Pesan tengkulak </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Pesan petani</a>
+                    <a href="<?= site_url('admin/listpesan/?jenis=petani') ?>" class="dropdown-item">Pesan petani</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
