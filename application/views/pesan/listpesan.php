@@ -1,6 +1,3 @@
-<?php $this->load->view('layout/header'); ?>
-<?php $this->load->view('layout/navbar'); ?>
-
 <div class="container-fluid" style="background-color:#ffffff; padding-top:80px;">
     <div class=" row">
         <div class="col-2">
@@ -25,7 +22,7 @@
                                         </td>
                                         <td>
                                             <center><?= date('d-m-Y', strtotime($pesan->tanggal_pesan)) ?> <span class="fas fa-calendar-alt"></span></center>
-                                            <a href="<?= site_url('admin/isipesan/?pengirim=' . $pesan->pengirim . '&tanggal=' . date('d-m-Y', strtotime($pesan->tanggal_pesan)) . '&unicode=' . $pesan->unicode) ?>" class="btn-default">BACA</a>
+                                            <a href="<?= site_url($this->uri->segment(1) . '/isipesan/?pengirim=' . $pesan->pengirim . '&tanggal=' . date('d-m-Y', strtotime($pesan->tanggal_pesan)) . '&unicode=' . $pesan->unicode) ?>" class="btn-default">BACA</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -40,4 +37,3 @@
         </div>
     </div>
 </div>
-<?php $this->load->view('layout/footer'); ?>

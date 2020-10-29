@@ -6,7 +6,7 @@
         </a>
         <div class="collapse navbar-collapse order-3" style="padding-left:30px;">
             <!-- SEARCH FORM -->
-<!--             <form class="form-inline ml-0 ml-md-3">
+            <!--             <form class="form-inline ml-0 ml-md-3">
                 <div class="input-group input-group-sm" style="background-color: white; border-radius:5px; width:300px">
                     <input class="form-control form-control-navbar" type="search" placeholder="Pencarian" aria-label="Search">
                     <div class="input-group-append">
@@ -31,21 +31,16 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
+                <a class="nav-link" href="<?= site_url('petani/listpesan/?jenis=admin'); ?>">
                     <i class="fas fa-comment-dots"></i>
                     <span class="badge badge-warning navbar-badge">1</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                    <a href="#" class="dropdown-item">Pesan tengkulak </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Pesan petani</a>
-                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" href="<?= site_url('petani/produkAnda') ?>">
                     <i class="fas fa-shopping-basket"></i>
                 </a>
-               
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= site_url('Login/logout'); ?>">

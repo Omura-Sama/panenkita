@@ -51,12 +51,15 @@ class M_admin extends CI_Model
 		return $query->result();
 	}
 
-	public function getIsiPesan($penerima)
+	public function getIsiPesan($jenis, $id_user)
 	{
 		$this->db->select('*');
 		$this->db->from('pesan');
-		$this->db->where('penerima', $penerima);
-		$this->db->group_by('pengirim');
+		$this->db->where('id_user', $id_user);
+		if ($jenis != 'admin') {
+			$this->db->where('pengirim', $jenis);
+		}
+		$this->db->group_by('unicode');
 
 		$query = $this->db->get();
 		return $query->result();
@@ -65,6 +68,7 @@ class M_admin extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('pesan');
+		$this->db->join('user', 'user.id_user = pesan.id_user', 'left');
 		$this->db->where('unicode', $unicode);
 		$this->db->order_by('id_pesan');
 
