@@ -13,6 +13,8 @@
                     <div class="col-1" style="background-color: #264E36;border-radius: 10px 0px 0px 10px;">
                     </div>
                     <div class="col-11" style="padding:0px 5px 0px 0px;">
+                    <?php echo $this->session->flashdata('msg'); ?>
+                    
                         <table class="table table-bordered">
                             <tr>
                                 <td width="75%" style="padding: 0;">
@@ -20,7 +22,7 @@
                                 </td>
                                 <td align="center">
                                     <a href="<?= site_url('tengkulak/transaksiproduk/'.$key->id_produk) ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Beli</a>
-                                    <a href="<?= site_url('tengkulak/transaksiproduk') ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Simpan</a>
+                                    <a href="<?= site_url('tengkulak/simpanproduk/'.$key->id_produk) ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Simpan</a>
                                     <a href="<?= site_url('tengkulak/kirimpesan/?id=') ?>" class="btn btn-default" style="margin-bottom: 20px; width:170px;">Kirim
                                         Pesan</a>
                                     <a href="<?= site_url('tengkulak/index') ?>" class="btn btn-danger" style="margin-bottom: 20px; width:170px;">Kembali</a>

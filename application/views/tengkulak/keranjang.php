@@ -30,24 +30,46 @@
                                                     </h5>
                                                     <p><?= $key->nama_produk; ?></p>
                                                     <p>
-                                                        <input type="checkbox" name="proses" id="proses">
+                                                        <?php
+                                                            $cektrans = $key->status;
+                                                            // echo $cektrans;
+                                                        ?>
+
+                                                        <?php if ($cektrans == 0): ?>
+                                                            <input type="checkbox" checked name="proses" id="proses">
+                                                            <?php else: ?>
+                                                            <input type="checkbox" name="proses" id="proses">
+                                                        <?php endif ?>
                                                         <label for="proses">Status di proses</label>
-                                                        <input type="checkbox" name="kemas" id="kemas">
+                                                        <?php if ($cektrans == 1): ?>
+                                                                <input type="checkbox" checked name="kemas" id="kemas">
+                                                            <?php else: ?>
+                                                                <input type="checkbox" name="kemas" id="kemas">
+                                                        <?php endif ?>
                                                         <label for="kemas">Status di kemas</label>
                                                     </p>
                                                     <p>
-                                                        <input type="checkbox" name="kirim" id="kirim">
+                                                        <?php if ($cektrans == 2): ?>
+                                                                <input type="checkbox" checked name="kirim" id="kirim">
+                                                            <?php else: ?>
+                                                                <input type="checkbox" name="kirim" id="kirim">
+                                                        <?php endif ?>
                                                         <label for="kirim">Status di kirim</label>
-                                                        <input type="checkbox" name="terima" id="terima">
+                                                        <?php if ($cektrans == 2): ?>
+                                                            <input type="checkbox" checked name="terima" id="terima">
+                                                            <?php else: ?>
+                                                                <input type="checkbox" name="terima" id="terima">
+                                                        <?php endif ?>
+                                                        
                                                         <label for="terima">Status di terima</label>
                                                     </p>
                                                 </div>
                                                 <div class="col-2">
-                                                    <h6 class="pb-1"><?php $date = substr($key->tanggal_pembelian,0,10);
+                                                    <h6 class="pb-1"><?php $date = substr($key->tanggal_transaksi,0,10);
                                                     echo $date;
                                                      ?> <span class="fas fa-calendar-alt"></span>
                                                     </h6>
-                                                    <a href="<?= site_url('tengkulak/pembelian/'.$key->id_produk); ?>"
+                                                    <a href="<?= site_url('tengkulak/pembelian/'.$key->id_transaksi); ?>"
                                                         class="btn btn-default">Cek</a>
                                                 </div>
                                             </div>

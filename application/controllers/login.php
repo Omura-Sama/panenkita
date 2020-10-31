@@ -56,7 +56,7 @@ class Login extends CI_Controller
 			$role = $data['role_id'];
 			$userId = $data['id_user'];
 
-			echo $userId;
+			// echo $userId;
 			$sesdata = array(
 				'iduser' => $userId,
 				'username' => $name,

@@ -15,7 +15,7 @@
                             STATUS PEMBELIAN
                         </p>
                     </div>
-                    <div class="col-2"><a href="<?= site_url('tengkulak/pembelian/'.$key->id_produk); ?>"
+                    <div class="col-2"><a href="<?= site_url('tengkulak/pembelian/'.$key->id_transaksi); ?>"
                             class="btn btn-danger">Kembali</a></div>
                 </div>
             <?php endforeach ?>
@@ -30,40 +30,60 @@
                                     <p><?= $key->alamat_tengkulak; ?></p>
                                 </td>
                             </tr>
+                            <?php endforeach ?>
+                            <?php foreach ($produkDetail as $key ): ?>
+                    
                             <tr>
                                 <td>
                                     <h5><b>Status Pesanan</b></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p>Kode Pembayaran</p>
-                                        </div>
-                                        <div class="col-6" align="right">
-                                            <p>Kode <?= $key->id_transaksi; ?></p>
-                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-3">
-                                            <input type="checkbox" name="proses" id="proses">
+                                            <?php
+                                                $cektrans = $key->status;
+                                                // echo $cektrans;
+                                            ?>
+
+                                            <?php if ($cektrans == 0): ?>
+                                                <input type="checkbox" checked name="proses" id="proses">
+                                                <?php else: ?>
+                                                <input type="checkbox" name="proses" id="proses">
+                                            <?php endif ?>
                                             <label for="proses">Status di proses</label>
                                         </div>
                                         <div class="col-3">
-                                            <input type="checkbox" name="kemas" id="kemas">
+                                        <?php if ($cektrans == 1): ?>
+                                                    <input type="checkbox" name="kemas" id="kemas">
+                                                <?php else: ?>
+                                                    <input type="checkbox" name="kemas" id="kemas">
+                                            <?php endif ?>
+                                            
                                             <label for="kemas">Status di kemas</label>
                                         </div>
                                         <div class="col-3">
-                                            <input type="checkbox" name="kirim" id="kirim">
+                                        <?php if ($cektrans == 2): ?>
+                                                    <input type="checkbox" name="kirim" id="kirim">
+                                                <?php else: ?>
+                                                    <input type="checkbox" name="kirim" id="kirim">
+                                            <?php endif ?>
+                                           
                                             <label for="kirim">Status di kirim</label>
                                         </div>
                                         <div class="col-3">
-                                            <input type="checkbox" name="terima" id="terima">
+                                        <?php if ($cektrans == 3): ?>
+                                                    <input type="checkbox" name="terima" id="terima">
+                                                <?php else: ?>
+                                                    <input type="checkbox" name="terima" id="terima">
+                                            <?php endif ?>
+                                           
                                             <label for="terima">Status di terima</label>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach ?>
+                            <?php endforeach ?>
 
-                        <?php foreach ($produktransaksi as $key ): ?>
+                        <?php foreach ($produkDetail as $key ): ?>
                             <tr>
                                 <td>
                                     <h5><b>Informasi Pesanan</b></h5>

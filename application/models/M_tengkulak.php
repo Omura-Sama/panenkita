@@ -34,7 +34,8 @@ class M_tengkulak extends CI_Model
         $this->db->from($this->_table);
         $this->db->join('user', 'user.id_user = tengkulak.id_user','left');
         $this->db->join('transaksi', 'transaksi.id_tengkulak = tengkulak.id_tengkulak','left');
-        $this->db->where('user.id_user =',$idUser);
+		$this->db->where('user.id_user =',$idUser);
+		$this->db->limit(1);
 
         $query = $this->db->get();
         return $query->result();
@@ -90,12 +91,73 @@ class M_tengkulak extends CI_Model
         $this->db->join('transaksi', 'transaksi.id_tengkulak = tengkulak.id_tengkulak','left');
         $this->db->join('produk', 'transaksi.id_petani = produk.id_petani','left');
         $this->db->join('petani', 'petani.id_petani = produk.id_petani','left');
-        $this->db->join('pembelian', 'pembelian.id_petani = produk.id_petani','left');
+		$this->db->where('user.id_user',$idUser);
+		// $this->db->limit(1);
+
+        $query = $this->db->get();
+        return $query->result();
+	}
+
+	public function getProdukIdByUser($idUser)
+	{
+		$this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->join('user', 'user.id_user = tengkulak.id_user','left');
+        $this->db->join('transaksi', 'transaksi.id_tengkulak = tengkulak.id_tengkulak','left');
+        $this->db->join('produk', 'produk.id_petani = transaksi.id_petani','left');
+        $this->db->join('simpan', 'simpan.id_tengkulak = transaksi.id_tengkulak','left');
         $this->db->where('user.id_user',$idUser);
 
         $query = $this->db->get();
         return $query->result();
 	}
+
+	public function cekSimpan($id,$id_tengkulak)
+	{
+        $this->db->where('id_produk',$id);
+        $this->db->where('id_tengkulak',$id_tengkulak);
+
+		$result = $this->db->get('simpan');
+		return $result;
+	}
+
+	public function userTransaksi($idUser)
+	{
+		$this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->join('user', 'user.id_user = tengkulak.id_user','left');
+        $this->db->join('transaksi', 'transaksi.id_tengkulak = tengkulak.id_tengkulak','left');
+        $this->db->join('pembelian', 'pembelian.id_transaksi = transaksi.id_transaksi','left');
+        $this->db->join('produk', 'produk.id_petani = transaksi.id_petani','left');
+        $this->db->where('user.id_user',$idUser);
+
+        $query = $this->db->get();
+        return $query->result();
+	}
+
+	function insertSimpan($dataSimpan){
+        $query = $this->db->insert("simpan",$dataSimpan);
+
+        // return $this->db->insert_id();// return last insert id
+	}
+
+	public function insertTrans($dataTransaksi)
+	{
+        $query = $this->db->insert("transaksi",$dataTransaksi);
+		
+	}
+
+	public function insertSales($dataPembelian)
+	{
+        $query = $this->db->insert("pembelian",$dataPembelian);
+		
+	}
+
+	public function insertIncome($dataPemasukan)
+	{
+        $query = $this->db->insert("pemasukan",$dataPemasukan);
+		
+	}	  
 
 	public function getDetailProduk($id)
 	{
@@ -109,14 +171,30 @@ class M_tengkulak extends CI_Model
         return $query->result();
 	}
 
+	public function getIdTrans($tengkulakID,$petaniID,$metodeTrans)
+	{
+		$this->db->select('id_transaksi');
+        $this->db->from('transaksi');
+		$this->db->where('id_tengkulak',$tengkulakID);
+		$this->db->where('id_petani',$petaniID);
+		$this->db->where('metode_transaksi',$metodeTrans);
+		$this->db->order_by('tanggal_transaksi', "desc");
+		$this->db->limit(1);
+			// $this->db->like('nama_produk',$cari);
+
+        $query = $this->db->get();
+        return $query->result();
+	}
+
 	public function getDetailTransaksi($id)
 	{
 		$this->db->select('*');
         $this->db->from($this->_tableProd);
         $this->db->join('petani', 'petani.id_petani = produk.id_petani','left');
-        $this->db->join('pembelian', 'pembelian.id_petani = produk.id_petani','left');
-		$this->db->where('id_produk',$id);
-			// $this->db->like('nama_produk',$cari);
+        $this->db->join('transaksi', 'transaksi.id_petani = produk.id_petani','left');
+        $this->db->join('pembelian', 'pembelian.id_transaksi = transaksi.id_transaksi','left');
+		$this->db->where('transaksi.id_transaksi',$id);
+		// $this->db->limit(1);
 
         $query = $this->db->get();
         return $query->result();
