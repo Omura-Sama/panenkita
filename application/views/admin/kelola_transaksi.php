@@ -11,27 +11,26 @@
                         <thead>
                             <tr>
                                 <th style="background: #264E36; color:#ffffff;">No.</th>
-                                <th style="background: #264E36; color:#ffffff;">Nama Produk</th>
-                                <th style="background: #264E36; color:#ffffff;">Foto</th>
-                                <th style="background: #264E36; color:#ffffff;">Kode Transaksi</th>
                                 <th style="background: #264E36; color:#ffffff;">Tanggal Transaksi</th>
-                                <th style="background: #264E36; color:#ffffff;">Proses</th>
-                                <th style="background: #264E36; color:#ffffff;">Kemas</th>
-                                <th style="background: #264E36; color:#ffffff;">Kirim</th>
-                                <th style="background: #264E36; color:#ffffff;">Terima</th>
-                                <th style="background: #264E36; color:#ffffff;">Harga</th>
-                                <th style="background: #264E36; color:#ffffff;">Transaksi</th>
+                                <th style="background: #264E36; color:#ffffff;">Metode Transaksi</th>
+                                <th style="background: #264E36; color:#ffffff;">Id Petani</th>
+                                <th style="background: #264E36; color:#ffffff;">Nama Petani</th>
+                                <th style="background: #264E36; color:#ffffff;">Id Tengkulak</th>
+                                <th style="background: #264E36; color:#ffffff;">Nama Tengkulak</th>
+                                <th style="background: #264E36; color:#ffffff;">Ubah Data</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- <?php print_r($listtransaksi); ?> -->
                             <?php foreach ($listtransaksi as $key) : ?>
                                 <tr>
-                                    <td><?= $key->id_kategori; ?></td>
-                                    <td><?= $key->nama_kategori; ?></td>
-                                    <td><?= $key->tipe_panen; ?></td>
-                                    <td><?= $key->PPN; ?></td>
-                                    <td><?= $key->kategori; ?></td>
-                                    <td><?= $key->deskripsi; ?></td>
+                                    <td><?= $key->id_transaksi; ?></td>
+                                    <td><?= $key->tanggal_transaksi; ?></td>
+                                    <td><?= $key->metode_transaksi; ?></td>
+                                    <td><?= $key->id_petani; ?></td>
+                                    <td><?= $key->nama_depan_petani." ".$key->nama_belakang_petani; ?></td>
+                                    <td><?= $key->id_tengkulak; ?></td>
+                                    <td><?= $key->nama_depan_tengkulak." ".$key->nama_belakang_tengkulak; ?></td>
                                     <td>
                                         <!-- <a style="color: blue;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> ubah</a> |
                                         <a style="color: red;" href="<?php echo site_url('Petani/statPenghasilan/') ?>"> hapus</a> -->

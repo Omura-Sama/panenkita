@@ -2,7 +2,6 @@
 <?php $this->load->view('layout/navbar_tengkulak'); ?>
 
 <div class="container-fluid" style="background-color:#ffffff; padding-top:80px;">
-<?php foreach ($produkDetail as $key ): ?>
 
     <div class=" row">
         <!-- <?php print_r($produkDetail); ?> -->
@@ -20,6 +19,7 @@
                                 <tbody>
                                         <tr>
                                             <td>
+                        <?php foreach ($produkDetail as $key ): ?>
                                                 <div class="row">
                                                     <div class="col-1">
                                                         <img class="imgPesan" src="<?= base_url('assets/img/pisang.jpeg'); ?>" alt="" width="60px" style="border-radius: 10px;">
@@ -33,6 +33,8 @@
                                                         </h6>
                                                     </div>
                                                 </div>
+                        <?php endforeach ?>
+
                                             </td>
                                         </tr>
                                 </tbody>
@@ -45,7 +47,6 @@
                 <p style="color:#264E36;"><b>&copy; 2020.</b> <img src=" <?= base_url('assets/img/logo/text_eden_logo.png'); ?>" alt="" class="img-fluid" width="100px" style="margin-top:-3px;"></p>
             </center>
         </div>
-        <?php endforeach ?>
 
     </div>
     <?php $this->load->view('layout/footer'); ?>

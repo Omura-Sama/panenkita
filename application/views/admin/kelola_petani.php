@@ -24,11 +24,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <!-- <?php print_r($listpetani); ?> -->
                             <?php $i = 1; ?>
                             <?php foreach ($listpetani as $key) : ?>
                                 <tr>
                                     <td><?= $i++ ?></td>
-                                    <td><?= $key->nama_petani; ?></td>
+                                    <td><?= $key->nama_depan_petani." ".$key->nama_belakang_petani;?></td>
                                     <td><?= $key->foto_petani; ?></td>
                                     <td><?= $key->email_petani; ?></td>
                                     <td><?= $key->password_petani; ?></td>

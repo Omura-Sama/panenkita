@@ -40,10 +40,10 @@
                     <i class="fas fa-caret-down"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                    <a href="<?= site_url('Tengkulak/akunSaya'); ?>?>" class="dropdown-item">Akun</a>
-                    <a href="<?= site_url('Tengkulak/tersimpan'); ?>?>" class="dropdown-item">Tersimpan</a>
-                    <a href="<?= site_url('Tengkulak/riwayattransaksi'); ?>?>" class="dropdown-item">History</a>
-                    <a href="<?= site_url('Login/logout'); ?>?>" class="dropdown-item">Logout</a>
+                    <a href="<?= site_url('Tengkulak/akunSaya'); ?>" class="dropdown-item">Akun</a>
+                    <a href="<?= site_url('Tengkulak/tersimpan'); ?>" class="dropdown-item">Tersimpan</a>
+                    <a href="<?= site_url('Tengkulak/riwayattransaksi'); ?>" class="dropdown-item">History</a>
+                    <a href="<?= site_url('Login/logout'); ?>" class="dropdown-item">Logout</a>
                     <div class="dropdown-divider"></div>
                 </div>
             </li>

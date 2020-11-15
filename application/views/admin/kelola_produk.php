@@ -22,6 +22,7 @@
                                 <th style="background: #264E36; color:#ffffff;">Detail</th>
                             </tr>
                         </thead>
+                        <!-- <?php print_r($listproduk); ?> -->
                         <tbody>
                             <?php $i = 1; ?>
                             <?php foreach ($listproduk as $key) : ?>
@@ -30,7 +31,7 @@
                                     <td><?= $key->nama_produk; ?></td>
                                     <td><?= $key->foto_produk; ?></td>
                                     <td><?= $key->nama_petani; ?></td>
-                                    <td><?= $key->nama_kategori; ?></td>
+                                    <td><?= $key->name_kategori; ?></td>
                                     <td><?= $key->tanggal_panen; ?></td>
                                     <td><?= $key->stok_produk; ?></td>
                                     <td><?= $key->deskripsi_produk; ?></td>
@@ -46,7 +47,7 @@
                 </div>
 
                 <div style="color: #ffffff; border-radius: 0px 0px 10px 10px; background-color: #8d9449; padding: 20px 10px 10px 10px; font-size:12px;">
-                    <a style=" border-radius: 2px 2px 2px 2px; font-size:12px; padding: 5px 5px 5px 5px; background-color: #264E36; color: #ffffff;" href="<?= site_url('Admin/tambahproduk'); ?>">Tambah Petani</a>
+                    <a style=" border-radius: 2px 2px 2px 2px; font-size:12px; padding: 5px 5px 5px 5px; background-color: #264E36; color: #ffffff;" href="<?= site_url('Admin/tambahproduk'); ?>">Tambah Produk</a>
                 </div>
             </div>
             <center style="font-size:14px;padding:10px;">

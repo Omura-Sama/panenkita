@@ -28,6 +28,8 @@ class M_admin extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('transaksi');
+		$this->db->join('petani', 'petani.id_petani = transaksi.id_transaksi', 'left');
+		$this->db->join('tengkulak', 'tengkulak.id_tengkulak = transaksi.id_transaksi', 'left');
 
 		$query = $this->db->get();
 		return $query->result();

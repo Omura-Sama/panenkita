@@ -115,6 +115,7 @@ class Tengkulak extends CI_Controller
     {
         $idUser = $this->session->userdata('iduser');
         $data["produkDetail"] = $this->M_tengkulak->getProdukIdByUser($idUser);
+        // $data["produkDetail"] = $this->M_tengkulak->getProdukIdByUserOnly($idUser);
         
         $this->load->view('tengkulak/tersimpan',$data);
     }

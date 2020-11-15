@@ -10,7 +10,9 @@
 
             <div class="card" style="border-radius: 10px;">
                 <div class="row" style="padding: 10px;">
-                    <div class="col-2"><a href="<?= site_url('petani/statPenghasilan/'.$key->id_produk); ?>" class="btn btn-danger">Kembali</a></div>
+                    <div class="col-2">
+                        <a href="<?= site_url('petani/produkAnda/'); ?>" class="btn btn-danger">Kembali</a></div>
+                        <!-- <a href="<?= site_url('petani/statPenghasilan/'.$key->id_produk); ?>" class="btn btn-danger">Kembali</a></div> -->
                     <div class="col-10">
                         <p style="font-size: 20px; font-weight: bold; color:#264E36;">
                             DETAIL PENGHASILAN ANDA

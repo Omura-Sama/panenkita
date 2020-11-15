@@ -112,6 +112,21 @@ class M_tengkulak extends CI_Model
         return $query->result();
 	}
 
+	public function getProdukIdByUserOnly($idUser)
+	{
+		$this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->join('user', 'user.id_user = tengkulak.id_user','left');
+        $this->db->join('transaksi', 'transaksi.id_tengkulak = tengkulak.id_tengkulak','left');
+        $this->db->join('produk', 'produk.id_petani = transaksi.id_petani','left');
+        $this->db->join('simpan', 'simpan.id_tengkulak = transaksi.id_tengkulak','left');
+		$this->db->where('user.id_user',$idUser);
+		$this->db->limit(1);
+
+        $query = $this->db->get();
+        return $query->result();
+	}
+
 	public function cekSimpan($id,$id_tengkulak)
 	{
         $this->db->where('id_produk',$id);

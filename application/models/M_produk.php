@@ -55,4 +55,19 @@ class M_produk extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function getProdukTransOnly($id)
+	{
+		$this->db->select('*');
+		$this->db->from($this->_table);
+		$this->db->join('pemasukan', 'pemasukan.id_petani = produk.id_petani', 'left');
+		$this->db->join('transaksi', 'transaksi.id_petani = produk.id_petani', 'left');
+		$this->db->join('pembelian', 'pembelian.id_petani = produk.id_petani', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+		$this->db->where('produk.id_produk =', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
